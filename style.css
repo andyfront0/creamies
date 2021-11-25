@@ -12,8 +12,19 @@ html {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    font-size: 18px;
     margin: 0px;
+    color: #ffffff;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+    text-align: center;
 }
+
+#iotalogo {
+    width: 90px;
+    padding-top: 5px;
+}
+
 
 .creamies {
     position: absolute;
@@ -77,4 +88,48 @@ html {
     100% {
         bottom: 0vw;
     }
+}
+
+
+
+
+#button-container {
+    text-align: center;
+  }
+
+.button-18 {
+  align-items: center;
+  background-color: #e371b0;
+  border: 1px solid #ffffff;
+  border-radius: 100px;
+  color: #ffffff;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", 
+  Helvetica, Arial, "Lucida Grande", sans-serif;
+  cursor: pointer;
+  width: 150px;
+  height: 50px;
+  font-size: 24px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+.button-18:hover,
+.button-18:focus { 
+  background-color: #DE499E;
+  color: #ffffff;
+}
+
+.button-18:active {
+  background: #c42c85;
+  color: rgb(255, 255, 255, 1.0);
+}
+
+.button-18:disabled { 
+  cursor: not-allowed;
+  background: rgba(172, 133, 173, 0.6);
+  color: rgba(0, 0, 0, .3);
 }
