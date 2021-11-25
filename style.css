@@ -36,6 +36,7 @@ html {
 
 .creamies {
     position: absolute;
+    z-index: -1;
     width: 20%;
     --speed: 0.75s;
     opacity: 0.2;
