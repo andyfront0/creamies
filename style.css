@@ -12,7 +12,7 @@
 }
 
 html {
-    -webkit-overflow-scrolling: none;
+    overscroll-behavior: contain;
     -webkit-text-size-adjust: 100%;
     background: rgb(0, 174, 255);
     background: linear-gradient(0deg, rgba(0, 174, 255, 1) 0%, rgba(0, 82, 153, 1) 100%);
