@@ -5,23 +5,27 @@ window.addEventListener('DOMContentLoaded', () => {
     const connectButton = document.getElementById('connectButton');
     const connectedText = document.getElementById('connectedText');
     const addressText = document.getElementById('addressText');
+    const sendButton = document.getElementById('sendButton');
+    let accounts = [];
 
 
     //Check if MetaMask Wallet is installed
     function checkMetaMask() {
-        if (!window.ethereum) {
+        if (typeof window.ethereum !== 'undefined' && window.ethereum.isMetaMask) {
+            connectButton.addEventListener('click', connectMetaMask);
+            sendButton.addEventListener('click', sendTransaction);
+
+        } else {
             connectButton.innerText = "Install MetaMask!";
             connectButton.style.fontSize = "min(3vw, 15px)";
             connectButton.disabled = true;
-        } else {
-            connectButton.addEventListener('click', connectMetaMask);
         }
     }
 
     //Connect to MetaMask
     async function connectMetaMask() {
         //Fetch accounts
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+        accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
             .catch((e) => {
                 console.log("User rejected");
                 return;
@@ -32,8 +36,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
         //If accounts found
         window.userWalletAddress = accounts[0];
-        connectedText.innerText = "Connected!";
+        console.log(ethereum.networkVersion);
         addressText.innerText = window.userWalletAddress;
+        sendButton.style.visibility = "visible";
+        connectedText.style.visibility = "visible";
+        addressText.style.visibility = "visible";
         connectButton.innerText = 'Disconnect';
 
         connectButton.removeEventListener('click', connectMetaMask)
@@ -42,11 +49,47 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 200)
     }
 
+
+    function sendTransaction() {
+        //Sending IOTA to an address
+        console.log("sending Transaction");
+            ethereum
+                .request({
+                    method: 'eth_sendTransaction',
+                    params: [
+                        {
+                            from: accounts[0],
+                            to: '0x5516A3c16F9982595E78d46C547fC461bb26F0B3',
+                            value: '0',
+                            gasPrice: '0',
+                            gas: '0x5208',
+                        },
+                    ],
+                })
+
+                //Success
+                .then((txHash) => {
+                    console.log(txHash)
+                    console.log("Transaction successful");
+                })
+
+                //Failed
+                .catch((error) => {
+                    console.error;
+                    console.log("Transaction failed");
+                });
+    }
+
+
+
     function disconnectMetaMask() {
         window.userWalletAddress = null
-        connectedText.innerText = "";
         addressText.innerText = '';
         connectButton.innerText = 'Connect';
+        sendButton.style.visibility = "hidden";
+        connectedText.style.visibility = "hidden";
+        addressText.style.visibility = "hidden";
+
 
         connectButton.removeEventListener('click', disconnectMetaMask)
         setTimeout(() => {
@@ -59,9 +102,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //If MetaMask account changes
     window.ethereum.on("accountsChanged", accounts => {
-        if (accounts.length > 0)
+        if (accounts.length > 0) {
             console.log(`Account connected: ${accounts[0]}`);
-        else {
+        } else {
             console.log("Account disconnected");
             disconnectMetaMask();
         }
