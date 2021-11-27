@@ -12,6 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
         if (!window.ethereum) {
             connectButton.innerText = "Install MetaMask!";
             connectButton.style.fontSize = "min(3vw, 15px)";
+            connectButton.disabled = true;
         } else {
             connectButton.addEventListener('click', connectMetaMask);
         }
