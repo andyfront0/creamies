@@ -117,7 +117,7 @@ html {
         Helvetica, Arial, "Lucida Grande", sans-serif;
     cursor: pointer;
     width: min(30vw, 150px);
-    height: min(10vw, 50px);
+    height: min(8vw, 50px);
     font-size: min(5vw, 24px);
     text-align: center;
     touch-action: manipulation;
