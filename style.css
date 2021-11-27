@@ -107,7 +107,7 @@ html {
     text-align: center;
 }
 
-.button-18 {
+#connectButton {
     align-items: center;
     background-image: linear-gradient(-180deg, #E680B8 0%, #DD4AA0 100%);
     border: 1px solid #ffffff;
@@ -127,18 +127,18 @@ html {
     vertical-align: middle;
 }
 
-.button-18:hover,
-.button-18:focus {
+#connectButton:hover,
+#connectButton-18:focus {
     background-image: linear-gradient(-180deg, #ff8ecc 0%, #f856b4 100%);
     color: #ffffff;
 }
 
-.button-18:active {
+#connectButton:active {
     background-image: linear-gradient(-180deg, #be6a99 0%, #af3d80 100%);
     color: rgb(255, 255, 255, 1.0);
 }
 
-.button-18:disabled {
+#connectButton:disabled {
     cursor: not-allowed;
     background: rgba(172, 133, 173, 0.6);
     color: rgba(0, 0, 0, .3);

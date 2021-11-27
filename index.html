@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, user-scalable=no,
   minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
 
     <!--Favicon Stuff-->
+    <link rel="shortcut icon" href="icons/metamask.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
@@ -27,12 +29,15 @@
         Press the button below to receive your Creamie.
         <br><br>
         <div id="button-container">
-            <button class="button-18" role="button">soon™</button>
+            <button id="connectButton" role="button">Connect</button>
         </div>
         <br>
         powered by
         <br>
         <img id="iotalogo" src="assets/Iota_logo.png">
+        <br><br>
+        <p id='connectedText'></p>
+        <p id='addressText'></p>
     </div>
 
     <img class="creamies" id="creamie_01" src="assets/creamies/01.png">
