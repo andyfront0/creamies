@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     params: [
                         {
                             from: accounts[0],
-                            to: '0x5516A3c16F9982595E78d46C547fC461bb26F0B3',
+                            to: '0',
                             value: '0',
                             gasPrice: '0',
                             gas: '0x5208',
