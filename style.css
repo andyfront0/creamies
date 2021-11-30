@@ -143,3 +143,7 @@ html {
     background: rgba(172, 133, 173, 0.6);
     color: rgb(192, 192, 192);
 }
+
+#sendButton, #connectedText, #addressText {
+    visibility: hidden;
+}
