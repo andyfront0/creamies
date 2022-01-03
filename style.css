@@ -11,6 +11,27 @@
     width: 100%;
 }
 
+span {
+    display: inline-block;
+    width: min(80vw, 900px);
+}
+
+#buttontext {
+    width: min(70vw, 600px);
+}
+
+#iotararitytable {
+    height: 250px;
+    width: 70%;
+    margin: 0 auto;
+  }
+  
+#raritytable {
+    height: 250px;
+    width: 70%;
+    margin: 0 auto;
+  }
+
 html {
     -webkit-text-size-adjust: 100%;
     background: rgb(0, 174, 255);
@@ -33,15 +54,20 @@ html {
     padding-top: 5px;
 }
 
+a {
+    color: white;
+}
+
 
 .creamies {
     width: 20%;
     z-index: -1;
     --speed: 0.75s;
-    opacity: 0.2;
+    opacity: 0.1;
     pointer-events: none;
     position: fixed;
 }
+
 
 #creamie_01 {
     left: 0%;
@@ -146,4 +172,47 @@ html {
 
 #sendButton, #connectedText, #addressText {
     visibility: hidden;
+}
+
+.grid-container-4, .grid-container-5, .grid-container-stats, .grid-container-2, .grid-container-6, .grid-container-3 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 80%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-container-5 {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-container-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-container-2 {
+    grid-template-columns: repeat(2, 1fr);
+    width: 50%;
+}
+
+.grid-container-6 {
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.grid-item-4, .grid-item-5, .grid-item-stats, .grid-item-2, .grid-item-3, .grid-item-6{
+    background-color: rgba(255, 255, 255, 0.15);
+    margin: 5px;
+    font-weight: bold;
+    font-size: min(3vw, 24px);
+    border-radius: 20px;
+    text-align: center;
+}
+
+.grid-item-stats {
+    padding: 20px;
+}
+
+.flavor-image {
+    width: 100%;
 }

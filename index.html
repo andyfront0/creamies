@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, user-scalable=no,
   minimum-scale=1.0, maximum-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="charts.min.css">
+    <!--<script type="text/javascript" src="script.js"></script>-->
 
     <!--Favicon Stuff-->
     <link rel="shortcut icon" href="icons/metamask.png" />
@@ -23,11 +24,257 @@
 <body>
     <div id="main">
         <img id="logo" src="assets/logo.png">
+        <h2>Welcome to Creamies NFT! 🍦</h2>
+        <span>
+            By buying one of our NFT's, you will not only have <b>ice cream
+                on the tangle</b> (which of course would be cool enough already),
+            but you'll also get <b>prioritized access</b> to future Creamie projects
+            like giveaways, new collections, whitelist spots and even more. The NFT's have varying rarity and will be
+            <b>randomly distributed</b> to each buyer, but all for the <b>same price</b>.
+            Currently, there is no roadmap, because we just want to <b>have fun
+                with IOTA</b> and we want to be open to <b>explore new things</b> that can be done with NFT's.
+            We'll just go with the flow!
+            But rest assured, there will always be a <b>special place for those early birds.</b>
+            So get your ticket to the Creamies train <b>right now!</b>
+        </span>
         <br>
-        Some delicious ice cream NFT's for you to keep forever! 🍦
         <br>
-        Press the button below to connect your wallet.
-        <br><br>
+        <span id="buttontext">
+            Feel free to explore the project by scrolling down first or press
+            the button below to get your long-awaited 🍦 on the tangle right away!
+        </span>
+        <br>
+        <br>
+        <div id="button-container">
+            <button class="connectButton" id="connectButton" role="button">soon™</button>
+        </div>
+        <br>
+        <br>
+        <h1>Stats</h1>
+        <div class="grid-container-4">
+            <div class="grid-item-title-stats">Total Supply</div>
+            <div class="grid-item-title-stats">Giveaway</div>
+            <div class="grid-item-title-stats">Available</div>
+            <div class="grid-item-title-stats">Price</div>
+            <div class="grid-item-stats">2104</div>
+            <div class="grid-item-stats">168</div>
+            <div class="grid-item-stats">1936</div>
+            <div class="grid-item-stats">~50Mi</div>
+        </div>
+        <br>
+        <span>
+            There are a total of 2104 NFT's to be minted. 168 of those will be given away for free for our <a
+                target="_blank" href="https://twitter.com/iotacreamies">Twitter</a> community
+            and 1936 of the remaining NFT's are available for sale for the above price (yet to be decided).
+        </span>
+        <br>
+        <br>
+        <br>
+        <h1>IOTA Giveaway</h1>
+        <div class="grid-container-3">
+            <div class="grid-item-title-3">IOTA Dark</div>
+            <div class="grid-item-title-3">IOTA White</div>
+            <div class="grid-item-title-3">IOTA Colored</div>
+            <div class="grid-item-3"><img class="flavor-image" src="assets/iota/iotadark.png"></div>
+            <div class="grid-item-3"><img class="flavor-image" src="assets/iota/iotawhite.png"></div>
+            <div class="grid-item-3"><img class="flavor-image" src="assets/iota/iotacolored.png"></div>
+        </div>
+        <br>
+        <span>There are 168 Creamies in the IOTA collection and soon there will be a <b>free</b> giveaway on our
+            official <a target="_blank" href="https://twitter.com/iotacreamies">Twitter</a> page.
+            <br>
+            Make sure to follow us there to stay informed.
+        </span>
+        <br>
+        <br>
+        <br>
+        <h1>Rarity</h1>
+        <h4>IOTA Collection (168 Creamies)</h4>
+        <div class="grid-container-6">
+            <div class="grid-item-title-6">Tier 01</div>
+            <div class="grid-item-title-6">Tier 02</div>
+            <div class="grid-item-title-6">Tier 03</div>
+            <div class="grid-item-title-6">Tier 04</div>
+            <div class="grid-item-title-6">Tier 05</div>
+            <div class="grid-item-title-6">Tier 06</div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/iotatier01.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/iotatier02.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/iotatier03.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/iotatier04.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/iotatier05.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/iotatier06.png"></div>
+            <div class="grid-item-title-6">40</div>
+            <div class="grid-item-title-6">40</div>
+            <div class="grid-item-title-6">24</div>
+            <div class="grid-item-title-6">24</div>
+            <div class="grid-item-title-6">20</div>
+            <div class="grid-item-title-6">20</div>
+        </div>
+        <br>
+        <h4>Main Collection (1936 Creamies)</h4>
+        <div class="grid-container-6">
+            <div class="grid-item-title-6">Tier 01</div>
+            <div class="grid-item-title-6">Tier 02</div>
+            <div class="grid-item-title-6">Tier 03</div>
+            <div class="grid-item-title-6">Tier 04</div>
+            <div class="grid-item-title-6">Tier 05</div>
+            <div class="grid-item-title-6">Tier 06</div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier01.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier02.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier03.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier04.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier05.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier06.png"></div>
+            <div class="grid-item-title-6">288</div>
+            <div class="grid-item-title-6">288</div>
+            <div class="grid-item-title-6">360</div>
+            <div class="grid-item-title-6">360</div>
+            <div class="grid-item-title-6">64</div>
+            <div class="grid-item-title-6">64</div>
+        </div>
+        <br>
+        <div class="grid-container-6">
+            <div class="grid-item-title-6">Tier 07</div>
+            <div class="grid-item-title-6">Tier 08</div>
+            <div class="grid-item-title-6">Tier 09</div>
+            <div class="grid-item-title-6">Tier 10</div>
+            <div class="grid-item-title-6">Tier 11</div>
+            <div class="grid-item-title-6">Tier 12</div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier07.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier08.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier09.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier10.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier11.png"></div>
+            <div class="grid-item-6"><img class="flavor-image" src="assets/rarity/tier12.png"></div>
+            <div class="grid-item-title-6">80</div>
+            <div class="grid-item-title-6">80</div>
+            <div class="grid-item-title-6">144</div>
+            <div class="grid-item-title-6">144</div>
+            <div class="grid-item-title-6">32</div>
+            <div class="grid-item-title-6">32</div>
+        </div>
+        <br>
+        <span>
+            The rarity of each Creamie depends on the flavor, expression, accessoire etc.
+            The above examples show the amount of Creamies in their specific tier compared to the total supply.
+            <b>Less amount = higher rarity!</b>
+        </span>
+        <br>
+        <br>
+        <br>
+        <h1>Flavors</h1>
+        <div class="grid-container-4">
+            <div class="grid-item-title-4">Strawberry</div>
+            <div class="grid-item-title-4">Vanilla</div>
+            <div class="grid-item-title-4">Chocolate</div>
+            <div class="grid-item-title-4">Lemon</div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/strawberry.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/vanilla.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/chocolate.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/lemon.png"></div>
+        </div>
+        <br>
+        <div class="grid-container-4">
+            <div class="grid-item-title-4">Yoghurt</div>
+            <div class="grid-item-title-4">Cherry</div>
+            <div class="grid-item-title-4">Mango</div>
+            <div class="grid-item-title-4">Blueberry</div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/yoghurt.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/cherry.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/mango.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/blueberry.png"></div>
+        </div>
+        <br>
+        <br>
+        <h1>Special Flavors</h1>
+        <div class="grid-container-5">
+            <div class="grid-item-title-5">Cookies & Cream</div>
+            <div class="grid-item-title-5">Coffee</div>
+            <div class="grid-item-title-5">Caramel</div>
+            <div class="grid-item-title-5">Pistachio</div>
+            <div class="grid-item-title-5">Mint</div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/cookiescream.png"></div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/coffee.png"></div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/caramel.png"></div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/pistachio.png"></div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/mint.png"></div>
+        </div>
+        <br>
+        <div class="grid-container-5">
+            <div class="grid-item-title-5">Chocolate Chip</div>
+            <div class="grid-item-title-5">Strawberry & Cream</div>
+            <div class="grid-item-title-5">Cookie Dough</div>
+            <div class="grid-item-title-5">Smurf</div>
+            <div class="grid-item-title-5">Liquorice</div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/chocolatechip.png"></div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/strawberrycream.png"></div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/cookiedough.png"></div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/smurf.png"></div>
+            <div class="grid-item-5"><img class="flavor-image" src="assets/flavors/liquorice.png"></div>
+        </div>
+        <br>
+        <br>
+        <h1>Rare Flavors</h1>
+        <div class="grid-container-4">
+            <div class="grid-item-title-4">Chocolate Almond Dark</div>
+            <div class="grid-item-title-4">Chocolate Cracks Dark</div>
+            <div class="grid-item-title-4">Chocolate Almond White</div>
+            <div class="grid-item-title-4">Chocolate Cracks White</div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/chocolatealmonddark.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/chocolatecracksdark.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/chocolatealmondwhite.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/flavors/chocolatecrackswhite.png"></div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <h1>Expressions</h1>
+        <div class="grid-container-4">
+            <div class="grid-item-title-4">Happy</div>
+            <div class="grid-item-title-4">Glad</div>
+            <div class="grid-item-title-4">Whistle</div>
+            <div class="grid-item-title-4">Relaxed</div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/expressions/happy.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/expressions/glad.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/expressions/whistle.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/expressions/relaxed.png"></div>
+        </div>
+        <br>
+        <div class="grid-container-4">
+            <div class="grid-item-title-4">Shocked</div>
+            <div class="grid-item-title-4">Nervous</div>
+            <div class="grid-item-title-4">Sad</div>
+            <div class="grid-item-title-4">Angry</div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/expressions/shocked.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/expressions/nervous.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/expressions/sad.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/expressions/angry.png"></div>
+        </div>
+        <br>
+        ...and even more
+        <br>
+        <br>
+        <h1>Accessoires</h1>
+        <div class="grid-container-4">
+            <div class="grid-item-title-4">White Waffle</div>
+            <div class="grid-item-title-4">Dark Waffle</div>
+            <div class="grid-item-title-4">Whipped Cream</div>
+            <div class="grid-item-title-4">Tangle 3D Glasses</div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/waffles/white.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/waffles/dark.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/accessoires/whippedcream.png"></div>
+            <div class="grid-item-4"><img class="flavor-image" src="assets/accessoires/tangle3dglasses.png"></div>
+        </div>
+        <br>
+        <br>
+        If you have any further questions, you can visit us on <a target="_blank"
+            href="https://twitter.com/iotacreamies">Twitter</a>.
+        <br>
+        <br>
+        <br>
+        Now finally get your long-awaited 🍦 on the tangle!
+        <br>
+        <br>
         <div id="button-container">
             <button class="connectButton" id="connectButton" role="button">soon™</button>
         </div>
@@ -40,14 +287,14 @@
         <p id='addressText'></p>
         <button class="connectButton" id="sendButton" role="button">Get 🍦😋</button>
     </div>
-
     <img class="creamies" id="creamie_01" src="assets/creamies/01.png">
     <img class="creamies" id="creamie_02" src="assets/creamies/02.png">
     <img class="creamies" id="creamie_03" src="assets/creamies/03.png">
     <img class="creamies" id="creamie_04" src="assets/creamies/04.png">
     <img class="creamies" id="creamie_05" src="assets/creamies/05.png">
     <img class="creamies" id="creamie_06" src="assets/creamies/06.png">
-    <br><br>
+    <br>
+    <br>
 </body>
 
 </html>
