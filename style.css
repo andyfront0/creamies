@@ -62,8 +62,6 @@ html {
     text-align: center;
 }
 
-
-
 #iotalogo {
     width: 100px;
     padding-top: 5px;
@@ -71,53 +69,6 @@ html {
 
 a {
     color: white;
-}
-
-
-.creamies {
-    width: 20%;
-    z-index: -1;
-    --speed: 0.75s;
-    opacity: 0.1;
-    pointer-events: none;
-    position: fixed;
-}
-
-
-#creamie_01 {
-    left: 0%;
-    -webkit-animation: floatCreamie var(--speed)+0s infinite alternate ease-in-out;
-    animation: floatCreamie var(--speed)+0s infinite alternate ease-in-out;
-}
-
-#creamie_02 {
-    left: 16%;
-    -webkit-animation: floatCreamie calc(var(--speed) + 0.1s) infinite alternate ease-in-out;
-    animation: floatCreamie calc(var(--speed) + 0.1s) infinite alternate ease-in-out;
-}
-
-#creamie_03 {
-    left: 32%;
-    -webkit-animation: floatCreamie calc(var(--speed) + 0.2s) infinite alternate ease-in-out;
-    animation: floatCreamie calc(var(--speed) + 0.2s) infinite alternate ease-in-out;
-}
-
-#creamie_04 {
-    right: 32%;
-    -webkit-animation: floatCreamie calc(var(--speed) - 0.1s) infinite alternate ease-in-out;
-    animation: floatCreamie calc(var(--speed) - 0.1s) infinite alternate ease-in-out;
-}
-
-#creamie_05 {
-    right: 16%;
-    -webkit-animation: floatCreamie calc(var(--speed) - 0.05s) infinite alternate ease-in-out;
-    animation: floatCreamie calc(var(--speed) - 0.05s) infinite alternate ease-in-out;
-}
-
-#creamie_06 {
-    right: 0%;
-    -webkit-animation: floatCreamie calc(var(--speed) + 0.15s) infinite alternate ease-in-out;
-    animation: floatCreamie calc(var(--speed) + 0.15s) infinite alternate ease-in-out;
 }
 
 #scroll-down {
@@ -179,29 +130,6 @@ a {
         transform: translateY(-5px);
     }
 }
-
-
-@-webkit-keyframes floatCreamie {
-    0% {
-        bottom: -10vw;
-    }
-
-    100% {
-        bottom: 0vw;
-    }
-}
-
-@keyframes floatCreamie {
-    0% {
-        bottom: -10vw;
-    }
-
-    100% {
-        bottom: 0vw;
-    }
-}
-
-
 
 
 #button-container {
