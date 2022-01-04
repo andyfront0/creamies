@@ -8,12 +8,12 @@ window.addEventListener('DOMContentLoaded', () => {
     scrollButton.onclick = function () {
         window.scrollTo({ top: scrollStop.offsetTop - 30, left: 0, behavior: 'smooth' });
     }
-
+/*
     window.addEventListener('scroll', function (e) {
         var scroll = window.pageYOffset || document.documentElement.scrollTop ||
             document.body.scrollTop || 0;
         scrollButton.style.opacity = Math.max(0, Math.min(1, -scroll / 200 + scrollStop.offsetTop / 250));
-    });
+    });*/
     //----------------SCROLL BUTTON BEHAVIOUR END-----------------
 
 });
