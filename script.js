@@ -2,7 +2,7 @@
 window.addEventListener('DOMContentLoaded', () => {
 
     //----------------SCROLL BUTTON BEHAVIOUR-----------------
-    var scrollButton = document.getElementById("scroll-down");
+    var scrollButton = document.getElementById("connectButton");
     var scrollStop = document.getElementById("scrollstop");
 
     scrollButton.onclick = function () {
