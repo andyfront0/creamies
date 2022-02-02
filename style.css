@@ -374,7 +374,6 @@ a {
 
 .item {
     display: block;
-    visibility: hidden;
     position: absolute;
     width: 200px;
     height: 200px;

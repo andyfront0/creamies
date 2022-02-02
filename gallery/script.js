@@ -157,38 +157,22 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //----------------------------------LAZY LOADING-------------------------------------
     var lazyloadImages;
-    var lazyloadItems;
 
     if ("IntersectionObserver" in window) {
         lazyloadImages = document.querySelectorAll("img");
-        lazyloadItems = document.querySelectorAll(".item");
+        
         var imageObserver = new IntersectionObserver(function (entries, observer) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
                     var image = entry.target;
                     image.src = image.dataset.src;
-                    //image.classList.remove("lazy");
                     imageObserver.unobserve(image);
-                }
-            });
-        });
-
-        var itemObserver = new IntersectionObserver(function (entries, observer) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    var item = entry.target;
-                    item.style.visibility = "visible";
-                    itemObserver.unobserve(item);
                 }
             });
         });
 
         lazyloadImages.forEach(function (image) {
             imageObserver.observe(image);
-        });
-
-        lazyloadItems.forEach(function (item) {
-            itemObserver.observe(item);
         });
 
     } else {
