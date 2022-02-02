@@ -1,12 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <title>Creamies NFT</title>
+    <title>Creamies</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="script.js"></script>
+
 
     <!--Favicon Stuff-->
     <link rel="shortcut icon" href="icons/metamask.png" />
@@ -18,20 +20,28 @@
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body>
-    <div id="main">
-        <img id="logo" src="assets/logo.png">
 
-        <div class="creamies-top"> 
-            <img class="description-creamie" src="assets/creamie.png">
-            <img class="description-creamie" src="assets/creamies/04.png">
-            <img class="description-creamie" src="assets/creamies/03.png">
-            <img class="description-creamie" src="assets/creamies/01.png">
-            <img class="description-creamie" src="assets/creamies/02.png">
-            <img class="description-creamie" src="assets/creamies/05.png">
-            <img class="description-creamie" src="assets/creamies/06.png">
-            <img class="description-creamie" src="assets/rarity/tier01.png">
-            <img class="description-creamie" src="assets/rarity/tier02.png">
+<body>
+
+    <div id="navbarContainer">
+        <a class="navlink" id="current" href=".">Home</a>
+        <a class="navlink" href="gallery">Gallery</a>
+    </div>
+    <a href="https://twitter.com/iotacreamies"><img src="assets/twitter.png" data-src="assets/twitter.png" id="twitter"></a>
+    
+    <div id="main">
+        <img id="logo" data-src="assets/logo.png">
+
+        <div class="creamies-top">
+            <img class="description-creamie" data-src="assets/creamie.png">
+            <img class="description-creamie" data-src="assets/creamies/04.png">
+            <img class="description-creamie" data-src="assets/creamies/03.png">
+            <img class="description-creamie" data-src="assets/creamies/01.png">
+            <img class="description-creamie" data-src="assets/creamies/02.png">
+            <img class="description-creamie" data-src="assets/creamies/05.png">
+            <img class="description-creamie" data-src="assets/creamies/06.png">
+            <img class="description-creamie" data-src="assets/rarity/tier01.png">
+            <img class="description-creamie" data-src="assets/rarity/tier02.png">
         </div>
 
         <!-------------------------------DESCRIPTION------------------------------->
@@ -102,15 +112,16 @@
         <br>
         <!-------------------------IOTA GIVEAWAY------------------------->
         <h1>IOTA Giveaway</h1>
+
         <div class="grid-container-iota">
             <div class="grid-item-title-iota">IOTA Dark<div class="grid-item-iota"><img class="flavor-image"
-                        src="assets/iota/iotadark.png"></div>
+                data-src="assets/iota/iotadark.png"></div>
             </div>
             <div class="grid-item-title-iota">IOTA White<div class="grid-item-iota"><img class="flavor-image"
-                        src="assets/iota/iotawhite.png"></div>
+                data-src="assets/iota/iotawhite.png"></div>
             </div>
             <div class="grid-item-title-iota">IOTA Colored<div class="grid-item-iota"><img class="flavor-image"
-                        src="assets/iota/iotacolored.png"></div>
+                data-src="assets/iota/iotacolored.png"></div>
             </div>
         </div>
         <br>
@@ -128,27 +139,27 @@
         <h4>IOTA Collection (168 Creamies)</h4>
         <div class="grid-container-rarity">
             <div class="grid-item-title-rarity">Tier 01<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/iotatier01.png"></div>
+                data-src="assets/rarity/iotatier01.png"></div>
                 <div class="grid-item-title-6">40</div>
             </div>
             <div class="grid-item-title-rarity">Tier 02<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/iotatier02.png"></div>
+                data-src="assets/rarity/iotatier02.png"></div>
                 <div class="grid-item-title-6">40</div>
             </div>
             <div class="grid-item-title-rarity">Tier 03<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/iotatier03.png"></div>
+                data-src="assets/rarity/iotatier03.png"></div>
                 <div class="grid-item-title-6">24</div>
             </div>
             <div class="grid-item-title-rarity">Tier 04<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/iotatier04.png"></div>
+                data-src="assets/rarity/iotatier04.png"></div>
                 <div class="grid-item-title-6">24</div>
             </div>
             <div class="grid-item-title-rarity">Tier 05<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/iotatier05.png"></div>
+                data-src="assets/rarity/iotatier05.png"></div>
                 <div class="grid-item-title-6">20</div>
             </div>
             <div class="grid-item-title-rarity">Tier 06<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/iotatier06.png"></div>
+                data-src="assets/rarity/iotatier06.png"></div>
                 <div class="grid-item-title-6">20</div>
             </div>
         </div>
@@ -156,51 +167,51 @@
         <h4>Main Collection (1936 Creamies)</h4>
         <div class="grid-container-rarity">
             <div class="grid-item-title-rarity">Tier 01<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier01.png"></div>
+                data-src="assets/rarity/tier01.png"></div>
                 <div class="grid-item-title-6">288</div>
             </div>
             <div class="grid-item-title-rarity">Tier 02<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier02.png"></div>
+                        data-src="assets/rarity/tier02.png"></div>
                 <div class="grid-item-title-6">288</div>
             </div>
             <div class="grid-item-title-rarity">Tier 03<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier03.png"></div>
+                        data-src="assets/rarity/tier03.png"></div>
                 <div class="grid-item-title-6">360</div>
             </div>
             <div class="grid-item-title-rarity">Tier 04<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier04.png"></div>
+                        data-src="assets/rarity/tier04.png"></div>
                 <div class="grid-item-title-6">360</div>
             </div>
             <div class="grid-item-title-rarity">Tier 05<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier05.png"></div>
+                        data-src="assets/rarity/tier05.png"></div>
                 <div class="grid-item-title-6">64</div>
             </div>
             <div class="grid-item-title-rarity">Tier 06<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier06.png"></div>
+                        data-src="assets/rarity/tier06.png"></div>
                 <div class="grid-item-title-6">64</div>
             </div>
             <div class="grid-item-title-rarity">Tier 07<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier07.png"></div>
+                        data-src="assets/rarity/tier07.png"></div>
                 <div class="grid-item-title-6">80</div>
             </div>
             <div class="grid-item-title-rarity">Tier 08<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier08.png"></div>
+                        data-src="assets/rarity/tier08.png"></div>
                 <div class="grid-item-title-6">80</div>
             </div>
             <div class="grid-item-title-rarity">Tier 09<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier09.png"></div>
+                        data-src="assets/rarity/tier09.png"></div>
                 <div class="grid-item-title-6">144</div>
             </div>
             <div class="grid-item-title-rarity">Tier 10<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier10.png"></div>
+                        data-src="assets/rarity/tier10.png"></div>
                 <div class="grid-item-title-6">144</div>
             </div>
             <div class="grid-item-title-rarity">Tier 11<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier11.png"></div>
+                        data-src="assets/rarity/tier11.png"></div>
                 <div class="grid-item-title-6">32</div>
             </div>
             <div class="grid-item-title-rarity">Tier 12<div class="grid-item-rarity"><img class="flavor-image"
-                        src="assets/rarity/tier12.png"></div>
+                        data-src="assets/rarity/tier12.png"></div>
                 <div class="grid-item-title-6">32</div>
             </div>
         </div>
@@ -218,28 +229,28 @@
         <h1>Flavors</h1>
         <div class="grid-container-flavors">
             <div class="grid-item-title-flavors">Strawberry<div class="grid-item-flavors"><img class="flavor-image"
-                        src="assets/flavors/strawberry.png"></div>
+                        data-src="assets/flavors/strawberry.png"></div>
             </div>
             <div class="grid-item-title-flavors">Vanilla<div class="grid-item-flavors"><img class="flavor-image"
-                        src="assets/flavors/vanilla.png"></div>
+                        data-src="assets/flavors/vanilla.png"></div>
             </div>
             <div class="grid-item-title-flavors">Chocolate<div class="grid-item-flavors"><img class="flavor-image"
-                        src="assets/flavors/chocolate.png"></div>
+                        data-src="assets/flavors/chocolate.png"></div>
             </div>
             <div class="grid-item-title-flavors">Lemon<div class="grid-item-flavors"><img class="flavor-image"
-                        src="assets/flavors/lemon.png"></div>
+                        data-src="assets/flavors/lemon.png"></div>
             </div>
             <div class="grid-item-title-flavors">Yoghurt<div class="grid-item-flavors"><img class="flavor-image"
-                        src="assets/flavors/yoghurt.png"></div>
+                        data-src="assets/flavors/yoghurt.png"></div>
             </div>
             <div class="grid-item-title-flavors">Cherry<div class="grid-item-flavors"><img class="flavor-image"
-                        src="assets/flavors/cherry.png"></div>
+                        data-src="assets/flavors/cherry.png"></div>
             </div>
             <div class="grid-item-title-flavors">Mango<div class="grid-item-flavors"><img class="flavor-image"
-                        src="assets/flavors/mango.png"></div>
+                        data-src="assets/flavors/mango.png"></div>
             </div>
             <div class="grid-item-title-flavors">Blueberry<div class="grid-item-flavors"><img class="flavor-image"
-                        src="assets/flavors/blueberry.png"></div>
+                        data-src="assets/flavors/blueberry.png"></div>
             </div>
         </div>
         <!-------------------------FLAVORS END------------------------->
@@ -249,34 +260,34 @@
         <h1>Special Flavors</h1>
         <div class="grid-container-specialflavors">
             <div class="grid-item-title-specialflavors">Cookies & Cream<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/cookiescream.png"></div>
+                        class="flavor-image" data-src="assets/flavors/cookiescream.png"></div>
             </div>
             <div class="grid-item-title-specialflavors">Coffee<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/coffee.png"></div>
+                        class="flavor-image" data-src="assets/flavors/coffee.png"></div>
             </div>
             <div class="grid-item-title-specialflavors">Caramel<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/caramel.png"></div>
+                        class="flavor-image" data-src="assets/flavors/caramel.png"></div>
             </div>
             <div class="grid-item-title-specialflavors">Pistachio<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/pistachio.png"></div>
+                        class="flavor-image" data-src="assets/flavors/pistachio.png"></div>
             </div>
             <div class="grid-item-title-specialflavors">Mint<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/mint.png"></div>
+                        class="flavor-image" data-src="assets/flavors/mint.png"></div>
             </div>
             <div class="grid-item-title-specialflavors">Chocolate Chip<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/chocolatechip.png"></div>
+                        class="flavor-image" data-src="assets/flavors/chocolatechip.png"></div>
             </div>
             <div class="grid-item-title-specialflavors">Strawberry & Cream<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/strawberrycream.png"></div>
+                        class="flavor-image" data-src="assets/flavors/strawberrycream.png"></div>
             </div>
             <div class="grid-item-title-specialflavors">Cookie Dough<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/cookiedough.png"></div>
+                        class="flavor-image" data-src="assets/flavors/cookiedough.png"></div>
             </div>
             <div class="grid-item-title-specialflavors">Smurf<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/smurf.png"></div>
+                        class="flavor-image" data-src="assets/flavors/smurf.png"></div>
             </div>
             <div class="grid-item-title-specialflavors">Liquorice<div class="grid-item-specialflavors"><img
-                        class="flavor-image" src="assets/flavors/liquorice.png"></div>
+                        class="flavor-image" data-src="assets/flavors/liquorice.png"></div>
             </div>
         </div>
         <!-------------------------SPECIAL FLAVORS END------------------------->
@@ -286,16 +297,16 @@
         <h1>Rare Flavors</h1>
         <div class="grid-container-rareflavors">
             <div class="grid-item-title-rareflavors">Dark Chocolate Almond<div class="grid-item-rareflavors"><img
-                        class="flavor-image" src="assets/flavors/chocolatealmonddark.png"></div>
+                        class="flavor-image" data-src="assets/flavors/chocolatealmonddark.png"></div>
             </div>
             <div class="grid-item-title-rareflavors">Dark Chocolate Cracks<div class="grid-item-rareflavors"><img
-                        class="flavor-image" src="assets/flavors/chocolatecracksdark.png"></div>
+                        class="flavor-image" data-src="assets/flavors/chocolatecracksdark.png"></div>
             </div>
             <div class="grid-item-title-rareflavors">White Chocolate Almond<div class="grid-item-rareflavors"><img
-                        class="flavor-image" src="assets/flavors/chocolatealmondwhite.png"></div>
+                        class="flavor-image" data-src="assets/flavors/chocolatealmondwhite.png"></div>
             </div>
             <div class="grid-item-title-rareflavors">White Chocolate Cracks<div class="grid-item-rareflavors"><img
-                        class="flavor-image" src="assets/flavors/chocolatecrackswhite.png"></div>
+                        class="flavor-image" data-src="assets/flavors/chocolatecrackswhite.png"></div>
             </div>
         </div>
         <!-------------------------RARE FLAVORS END------------------------->
@@ -306,28 +317,28 @@
         <h1>Expressions</h1>
         <div class="grid-container-expressions">
             <div class="grid-item-title-expressions">Happy<div class="grid-item-expressions"><img class="flavor-image"
-                        src="assets/expressions/happy.png"></div>
+                        data-src="assets/expressions/happy.png"></div>
             </div>
             <div class="grid-item-title-expressions">Glad<div class="grid-item-expressions"><img class="flavor-image"
-                        src="assets/expressions/glad.png"></div>
+                        data-src="assets/expressions/glad.png"></div>
             </div>
             <div class="grid-item-title-expressions">Whistle<div class="grid-item-expressions"><img class="flavor-image"
-                        src="assets/expressions/whistle.png"></div>
+                        data-src="assets/expressions/whistle.png"></div>
             </div>
             <div class="grid-item-title-expressions">Relaxed<div class="grid-item-expressions"><img class="flavor-image"
-                        src="assets/expressions/relaxed.png"></div>
+                        data-src="assets/expressions/relaxed.png"></div>
             </div>
             <div class="grid-item-title-expressions">Shocked<div class="grid-item-expressions"><img class="flavor-image"
-                        src="assets/expressions/shocked.png"></div>
+                        data-src="assets/expressions/shocked.png"></div>
             </div>
             <div class="grid-item-title-expressions">Nervous<div class="grid-item-expressions"><img class="flavor-image"
-                        src="assets/expressions/nervous.png"></div>
+                        data-src="assets/expressions/nervous.png"></div>
             </div>
             <div class="grid-item-title-expressions">Sad<div class="grid-item-expressions"><img class="flavor-image"
-                        src="assets/expressions/sad.png"></div>
+                        data-src="assets/expressions/sad.png"></div>
             </div>
             <div class="grid-item-title-expressions">Angry<div class="grid-item-expressions"><img class="flavor-image"
-                        src="assets/expressions/angry.png"></div>
+                        data-src="assets/expressions/angry.png"></div>
             </div>
         </div>
         <br>
@@ -339,16 +350,16 @@
         <h1>Accessories</h1>
         <div class="grid-container-accessoires">
             <div class="grid-item-title-accessoires">White Waffle<div class="grid-item-accessoires"><img
-                        class="flavor-image" src="assets/accessoires/white.png"></div>
+                        class="flavor-image" data-src="assets/accessoires/white.png"></div>
             </div>
             <div class="grid-item-title-accessoires">Dark Waffle<div class="grid-item-accessoires"><img
-                        class="flavor-image" src="assets/accessoires/dark.png"></div>
+                        class="flavor-image" data-src="assets/accessoires/dark.png"></div>
             </div>
             <div class="grid-item-title-accessoires">Whipped Cream<div class="grid-item-accessoires"><img
-                        class="flavor-image" src="assets/accessoires/whippedcream.png"></div>
+                        class="flavor-image" data-src="assets/accessoires/whippedcream.png"></div>
             </div>
             <div class="grid-item-title-accessoires">Tangle 3D Glasses<div class="grid-item-accessoires"><img
-                        class="flavor-image" src="assets/accessoires/tangle3dglasses.png"></div>
+                        class="flavor-image" data-src="assets/accessoires/tangle3dglasses.png"></div>
             </div>
         </div>
         <!-------------------------ACCESSOIRES END------------------------->
@@ -363,11 +374,12 @@
         <br>
         powered by
         <br>
-        <img id="iotalogo" src="assets/Iota_logo.png">
+        <img id="iotalogo" src="assets/Iota_logo.png" data-src="assets/Iota_logo.png">
         <br><br>
         <p id='connectedText'>Connected!</p>
         <p id='addressText'></p>
         <button class="connectButton" id="sendButton" role="button">Get 🍦😋</button>
     </div>
 </body>
+
 </html>

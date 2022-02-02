@@ -1,3 +1,37 @@
+#navbarContainer {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+}
+
+.navlink {
+    text-decoration: none;
+    background-color: rgb(255, 255, 255, 0.1);
+    padding: 10px;
+}
+
+#current {
+    background-image: linear-gradient(
+        -180deg
+        , #e680b860 0%, #dd4aa05d 100%);
+}
+
+#current:hover {
+    background-image: linear-gradient(
+        -180deg
+        , #e680b8 0%, #DD4AA0 100%);
+}
+
+.navlink:hover {
+    background-image: linear-gradient(
+        -180deg
+        , #e680b8 0%, #DD4AA0 100%);
+}
+
+body {
+    margin: 0;
+}
+
 #logo {
     display: block;
     margin-left: auto;
@@ -138,7 +172,7 @@ a {
 
 .connectButton {
     align-items: center;
-    background-image: linear-gradient(-180deg, #E680B8 0%, #DD4AA0 100%);
+    background-image: linear-gradient(-180deg, #e680b8 0%, #DD4AA0 100%);
     border: 1px solid #ffffff;
     border-radius: 100px;
     color: #ffffff;
@@ -282,3 +316,265 @@ a {
 .flavor-image {
     width: 100%;
 }
+
+
+
+/*Grid NFT Page*/
+#loader {
+    border: 10px solid #f3f3f35d;
+    border-radius: 50%;
+    border-top: 10px solid #e680b8;
+    width: 30px;
+    height: 30px;
+    -webkit-animation: spin 1s linear infinite;
+    /* Safari */
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.grid {
+    top: 10000px;
+    visibility: hidden;
+    position: relative;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.nftimage {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.item {
+    display: block;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    z-index: 1;
+    color: #fff;
+}
+
+.item.muuri-item-dragging {
+    z-index: 3;
+}
+
+.item.muuri-item-releasing {
+    z-index: 2;
+}
+
+.item.muuri-item-hidden {
+    z-index: 0;
+}
+
+.item-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/*Grid NFT Page END*/
+
+#selectContainer {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%/2, max(150px, 100%/7)), 1fr));
+    gap: 10px;
+}
+
+
+select {
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMC4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA0LjkgMTAiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQuOSAxMDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I2ZmZmZmZjt9DQo8L3N0eWxlPg0KPHRpdGxlPmFycm93czwvdGl0bGU+DQo8cG9seWdvbiBjbGFzcz0ic3QwIiBwb2ludHM9IjEuNCw0LjcgMi41LDMuMiAzLjUsNC43ICIvPg0KPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSIzLjUsNS4zIDIuNSw2LjggMS40LDUuMyAiLz4NCjwvc3ZnPg==) no-repeat 95% 50%;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background-color: rgb(255, 255, 255, 0.3);
+    color: white;
+    border: 0;
+    height: 35px;
+    border-radius: 20px;
+    text-align: center;
+    text-align-last: center;
+    -moz-text-align-last: center;
+}
+
+select option {
+    background: rgb(75, 75, 75);
+}
+
+#typeNumber {
+    width: 100%;
+    background-color: rgb(255, 255, 255, 0.3);
+    color: white;
+    border: 0;
+    height: 35px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+#sortby:hover,
+#sortby:focus {
+    background-color: rgb(255, 255, 255, 0.3);
+}
+
+#sortby:active {
+    background-color: rgb(255, 255, 255, 0.15);
+}
+
+#sortby {
+    width: 100px;
+    background-color: rgb(255, 255, 255, 0.15);
+    height: 25px;
+    border-radius: 50px;
+    border: 0;
+    color: white;
+}
+
+#counter {
+    all: unset;
+    font-size: 24px;
+    font-weight: bold;
+
+}
+
+#countercontainer {
+    visibility: hidden;
+    background-color: rgb(255, 255, 255, 0.15);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100px;
+    width: 170px;
+    padding: 10px;
+}
+
+#sortbyContainer {
+    visibility: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.nftnumber {
+    all: unset;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+.nftinfo {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 20px;
+    opacity: 0;
+}
+
+.nftinfotext {
+    position: relative;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-top: 20px;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.9;
+}
+
+.nftinfo:hover {
+    opacity: 1;
+}
+
+
+.mintButton {
+
+    background-image: linear-gradient(-180deg, #e680b8 0%, #DD4AA0 100%);
+    border: 1px solid #ffffff;
+    border-radius: 100px;
+    color: #ffffff;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+        Helvetica, Arial, "Lucida Grande", sans-serif;
+    cursor: pointer;
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    text-align: center;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    margin: 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+.mintButton:hover,
+.mintButton:focus {
+    background-image: linear-gradient(-180deg, #ff8ecc 0%, #f856b4 100%);
+    color: #ffffff;
+}
+
+.mintButton:active {
+    background-image: linear-gradient(-180deg, #be6a99 0%, #af3d80 100%);
+    color: rgb(255, 255, 255, 1.0);
+}
+
+.mintButton:disabled {
+    cursor: not-allowed;
+    background: rgba(172, 133, 173, 0.6);
+    color: rgb(192, 192, 192);
+}
+
+
+/*Social Media Icons*/
+#twitter {
+    width: 30px;
+    position: fixed;
+    padding-top: 5px;
+    padding-bottom: 15px;
+    padding-left: 20px;
+    padding-right: 15px;
+    right: 0px;
+    bottom: 0px;
+    opacity: 0.3;
+    transition: opacity 0.1s linear;
+}
+
+#twitter:hover {
+    opacity: 1;
+    transition: opacity 0.1s linear;
+}
+
+/*Social Media Icons End*/
