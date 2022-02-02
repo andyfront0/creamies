@@ -24,11 +24,13 @@
         <a class="navlink" href="../">Home</a>
         <a class="navlink" id="current" href=".">Gallery</a>
     </div>
-    <a href="https://twitter.com/iotacreamies"><img src="../assets/twitter.png" data-src="../assets/twitter.png" id="twitter"></a>
+    <a target="_blank" href="https://twitter.com/iotacreamies"><img src="../assets/twitter.png" data-src="../assets/twitter.png"
+            id="twitter"></a>
 
     <div id="main">
         <br>
         <h1>Creamies Gallery</h1>
+        <div id="loader"></div>
         <div id="selectContainer">
             <div>
                 Flavor
@@ -119,12 +121,11 @@
             </div>
         </div>
         <br>
-        <span>You can filter the entire NFT collection by using the settings above.</span>
+        <span id="filterDescription">You can filter the entire NFT collection by using the settings above.</span>
         <br>
         <br>
         <br>
         <div id="countercontainer"><span id="counter">2104</span> / 2104</div>
-        <div id="loader"></div>
         <div id="sortbyContainer"><button type="button" id="sortby">Number ▴</button></div>
         <div class="grid">
             <div class="item" number="" tier="" flavor="" iota="" waffle="" expression="" accessory="">
@@ -140,13 +141,14 @@
         </div>
         <br>
         <br>
-        powered by
+        <div id="powered">
+            powered by
+            <br>
+            <img id="iotalogo" src="../assets/Iota_logo.png" data-src="../assets/Iota_logo.png">
+        </div>
         <br>
-        <img id="iotalogo" src="../assets/Iota_logo.png" data-src="../assets/Iota_logo.png">
-        <br><br>
-        <p id='connectedText'>Connected!</p>
-        <p id='addressText'></p>
-        <button class="connectButton" id="sendButton" role="button">Get 🍦😋</button>
+        <br>
+        <br>
     </div>
 
     <!--Scripts-->

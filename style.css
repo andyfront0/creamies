@@ -11,21 +11,15 @@
 }
 
 #current {
-    background-image: linear-gradient(
-        -180deg
-        , #e680b860 0%, #dd4aa05d 100%);
+    background-image: linear-gradient(-180deg, #e680b860 0%, #dd4aa05d 100%);
 }
 
 #current:hover {
-    background-image: linear-gradient(
-        -180deg
-        , #e680b8 0%, #DD4AA0 100%);
+    background-image: linear-gradient(-180deg, #e680b8 0%, #DD4AA0 100%);
 }
 
 .navlink:hover {
-    background-image: linear-gradient(
-        -180deg
-        , #e680b8 0%, #DD4AA0 100%);
+    background-image: linear-gradient(-180deg, #e680b8 0%, #DD4AA0 100%);
 }
 
 body {
@@ -82,9 +76,6 @@ span {
 
 html {
     -webkit-text-size-adjust: 100%;
-    background: linear-gradient(0deg, rgba(0, 174, 255, 1) 0%, rgba(0, 82, 153, 1) 100%);
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     width: 100%;
     height: 100%;
     /*font-size: min(3vw, 18px);*/
@@ -94,6 +85,20 @@ html {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
         Helvetica, Arial, "Lucida Grande", sans-serif;
     text-align: center;
+}
+
+@supports not (-webkit-touch-callout: none) {
+    html {
+        background: linear-gradient(0deg, rgba(0, 174, 255, 1) 0%, rgba(0, 82, 153, 1) 100%);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    html {
+        background-color: rgb(0, 92, 173);
+    }
 }
 
 #iotalogo {
@@ -398,6 +403,7 @@ a {
 /*Grid NFT Page END*/
 
 #selectContainer {
+    visibility: hidden;
     display: grid;
     margin-left: auto;
     margin-right: auto;
@@ -575,6 +581,24 @@ select option {
 #twitter:hover {
     opacity: 1;
     transition: opacity 0.1s linear;
+}
+
+#filterDescription {
+    visibility: hidden;
+}
+
+#powered {
+    position: fixed;
+    width: 100px;
+    bottom: 30px;
+    left: 50%;
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
+}
+
+#poweredAfter {
+    position: relative;
+    bottom: 0px;
 }
 
 /*Social Media Icons End*/
