@@ -141,7 +141,10 @@ window.addEventListener('DOMContentLoaded', () => {
         if (accessory == "") {accessory = "-";}
 
          nftInfoTexts[i].innerHTML = "<b>Tier </b>"+tier+"<br><b>Flavor </b>"+flavor+"<br><b>IOTA </b>"+iota+"<br><b>Waffle </b>"+waffle+"<br><b>Expression </b>"+expression+"<br><b>Accessory </b>"+accessory;
+
     }
+
+
 
     //Initialize Grid
     var grid = new Muuri('.grid', {
@@ -154,9 +157,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //----------------------------------LAZY LOADING-------------------------------------
     var lazyloadImages;
+    var lazyloadItems;
 
     if ("IntersectionObserver" in window) {
         lazyloadImages = document.querySelectorAll("img");
+        lazyloadItems = document.querySelectorAll(".item");
         var imageObserver = new IntersectionObserver(function (entries, observer) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -168,8 +173,22 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+        var itemObserver = new IntersectionObserver(function (entries, observer) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var item = entry.target;
+                    item.style.visibility = "visible";
+                    itemObserver.unobserve(item);
+                }
+            });
+        });
+
         lazyloadImages.forEach(function (image) {
             imageObserver.observe(image);
+        });
+
+        lazyloadItems.forEach(function (item) {
+            itemObserver.observe(item);
         });
 
     } else {
