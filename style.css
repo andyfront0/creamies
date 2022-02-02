@@ -11,7 +11,7 @@
 }
 
 #current {
-    background-image: linear-gradient(-180deg, #e680b860 0%, #dd4aa05d 100%);
+    background-image: linear-gradient(-180deg, #e680b885 0%, #dd4aa08e 100%);
 }
 
 #current:hover {
@@ -187,6 +187,8 @@ a {
     width: 150px;
     height: 50px;
     font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
     text-align: center;
     touch-action: manipulation;
     transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s, color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;

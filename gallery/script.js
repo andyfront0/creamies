@@ -7,6 +7,7 @@ var expressionSelector = "";
 var accessorySelector = "";
 var numberSelector = "";
 var sorted = false;
+var randomFlavor;
 
 var resetButtons = document.getElementsByClassName("resetButton");
 var flavorSelect = document.getElementById("selectFlavor");
@@ -25,6 +26,11 @@ var poweredIOTA = document.getElementById("powered");
 
 
 //-------------------------------------------FUNCTIONS------------------------------------------------
+//Random Int Generator
+function generateRandomInteger(min, max) {
+    return Math.floor(min + Math.random() * (max + 1 - min))
+}
+
 //Shuffle Array
 function shuffle(arr) {
     var array = arr;
@@ -58,7 +64,7 @@ function filterGrid(grid, sel) {
     if (sel.id == "selectExpression" && sel.selectedIndex == 0) { expressionSelector = "[expression]"; }
     if (sel.id == "selectAccessory" && sel.selectedIndex == 0) { accessorySelector = "[accessory]"; }
 
-    if (sel.id == "typeNumber" && sel.value != "" && sel.id == "typeNumber" && sel.value != "0") {
+    if (sel.id == "typeNumber" && sel.value != "" && sel.value != "0") {
         flavorSelect.selectedIndex = 0;
         waffleSelect.selectedIndex = 0;
         iotaSelect.selectedIndex = 0;
@@ -70,10 +76,13 @@ function filterGrid(grid, sel) {
         expressionSelector = "[expression]";
         accessorySelector = "[accessory]";
         numberSelector = '[number="' + typeNumberInput.value + '"]';
-    } else {
+    } else if (sel.id == "typeNumber" ) {
+        //Filter nach Random Flavor (saves Performance from the start)
+        flavorSelect.selectedIndex = randomFlavor;
+        flavorSelector = "[flavor='"+flavorSelect.options[randomFlavor].id+"']";
         typeNumberInput.value = "";
         numberSelector = "[number]";
-    }   
+    }
 
     gridSelector = numberSelector + flavorSelector + waffleSelector + iotaSelector + expressionSelector + accessorySelector;
 
@@ -101,7 +110,6 @@ window.addEventListener('DOMContentLoaded', () => {
     var itemElement = document.getElementsByClassName("item")[0];
     var gridElement = document.getElementsByClassName("grid")[0];
     var loaderElement = document.getElementById("loader");
-    
 
     //Duplicate Elements
     for (var i = 0; i < nftarray.length - 1; i++) {
@@ -112,7 +120,7 @@ window.addEventListener('DOMContentLoaded', () => {
     var nftImages = document.getElementsByClassName("nftimage");
     var nftNumbers = document.getElementsByClassName("nftnumber");
     var nftInfoTexts = document.getElementsByClassName("nftinfotext");
-    
+
     //Apply Images
     for (var i = 0; i < nftarray.length; i++) {
         nftImages[i].setAttribute("data-src", "../assets/nft/" + nftarray[i]);
@@ -136,11 +144,11 @@ window.addEventListener('DOMContentLoaded', () => {
         var flavor = item.getAttribute("flavor");
         var waffle = item.getAttribute("waffle");
 
-        if (iota == "") {iota = "-";}
-        if (expression == "") {expression = "-";}
-        if (accessory == "") {accessory = "-";}
+        if (iota == "") { iota = "-"; }
+        if (expression == "") { expression = "-"; }
+        if (accessory == "") { accessory = "-"; }
 
-         nftInfoTexts[i].innerHTML = "<b>Tier </b>"+tier+"<br><b>Flavor </b>"+flavor+"<br><b>IOTA </b>"+iota+"<br><b>Waffle </b>"+waffle+"<br><b>Expression </b>"+expression+"<br><b>Accessory </b>"+accessory;
+        nftInfoTexts[i].innerHTML = "<b>Tier </b>" + tier + "<br><b>Flavor </b>" + flavor + "<br><b>IOTA </b>" + iota + "<br><b>Waffle </b>" + waffle + "<br><b>Expression </b>" + expression + "<br><b>Accessory </b>" + accessory;
 
     }
 
@@ -153,6 +161,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 return parseFloat(element.getAttribute('number'));
             },
         },
+
     });
 
     //----------------------------------LAZY LOADING-------------------------------------
@@ -160,7 +169,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if ("IntersectionObserver" in window) {
         lazyloadImages = document.querySelectorAll("img");
-        
+
         var imageObserver = new IntersectionObserver(function (entries, observer) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -207,6 +216,10 @@ window.addEventListener('DOMContentLoaded', () => {
     //----------------------------------LAZY LOADING-------------------------------------
 
 
+    //Filter nach Random Flavor (saves Performance from the start)
+    randomFlavor = generateRandomInteger(1, flavorSelect.options.length - 1);
+    flavorSelect.selectedIndex = randomFlavor;
+    filterGrid(grid, flavorSelect);
 
     grid.on('layoutEnd', function (items) {
         gridElement.style.top = "0px";
@@ -234,7 +247,7 @@ window.addEventListener('DOMContentLoaded', () => {
                     break;
                 }
             }
-    
+
             var gridSize = grid.getElement().offsetWidth;
             var itemSize = window.getComputedStyle(grid.getItem(0).getElement()).width;
             var itemMargin = window.getComputedStyle(grid.getItem(0).getElement()).margin;

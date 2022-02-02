@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     //----------------SCROLL BUTTON BEHAVIOUR-----------------
-    var scrollButton = document.getElementById("connectButton");
+    var scrollButton = document.getElementById("statsButton");
     var scrollStop = document.getElementById("scrollstop");
 
     scrollButton.onclick = function () {
