@@ -76,10 +76,10 @@ function filterGrid(grid, sel) {
         expressionSelector = "[expression]";
         accessorySelector = "[accessory]";
         numberSelector = '[number="' + typeNumberInput.value + '"]';
-    } else if (sel.id == "typeNumber" ) {
+    } else if (sel.id == "typeNumber") {
         //Filter nach Random Flavor (saves Performance from the start)
         flavorSelect.selectedIndex = randomFlavor;
-        flavorSelector = "[flavor='"+flavorSelect.options[randomFlavor].id+"']";
+        flavorSelector = "[flavor='" + flavorSelect.options[randomFlavor].id + "']";
         typeNumberInput.value = "";
         numberSelector = "[number]";
     }
@@ -119,15 +119,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
     var nftImages = document.getElementsByClassName("nftimage");
     var nftNumbers = document.getElementsByClassName("nftnumber");
-    var nftInfoTexts = document.getElementsByClassName("nftinfotext");
+    //var nftInfoTexts = document.getElementsByClassName("nftinfotext");
+
 
     //Apply Images
     for (var i = 0; i < nftarray.length; i++) {
+
         nftImages[i].setAttribute("data-src", "../assets/nft/" + nftarray[i]);
 
         var data = nftarray[i].replace(".jpg", "").split("_");
         var item = document.getElementsByClassName("item")[i];
-        nftNumbers[i].textContent = data[0];
+        //nftNumbers[i].textContent = data[0];
 
         item.setAttribute("number", data[0]);
         item.setAttribute("tier", data[1]);
@@ -137,18 +139,18 @@ window.addEventListener('DOMContentLoaded', () => {
         if (data.length > 5) item.setAttribute("accessory", data[5]);
         if (data.length > 6) item.setAttribute("accessory", data[5] + " " + data[6]);
 
-        var iota = item.getAttribute("iota");
-        var expression = item.getAttribute("expression");
-        var accessory = item.getAttribute("accessory");
-        var tier = item.getAttribute("tier");
-        var flavor = item.getAttribute("flavor");
-        var waffle = item.getAttribute("waffle");
+        /* var iota = item.getAttribute("iota");
+         var expression = item.getAttribute("expression");
+         var accessory = item.getAttribute("accessory");
+         var tier = item.getAttribute("tier");
+         var flavor = item.getAttribute("flavor");
+         var waffle = item.getAttribute("waffle");
+ 
+         if (iota == "") { iota = "-"; }
+         if (expression == "") { expression = "-"; }
+         if (accessory == "") { accessory = "-"; }*/
 
-        if (iota == "") { iota = "-"; }
-        if (expression == "") { expression = "-"; }
-        if (accessory == "") { accessory = "-"; }
-
-        nftInfoTexts[i].innerHTML = "<b>Tier </b>" + tier + "<br><b>Flavor </b>" + flavor + "<br><b>IOTA </b>" + iota + "<br><b>Waffle </b>" + waffle + "<br><b>Expression </b>" + expression + "<br><b>Accessory </b>" + accessory;
+        //nftInfoTexts[i].innerHTML = "<b>Tier </b>" + tier + "<br><b>Flavor </b>" + flavor + "<br><b>IOTA </b>" + iota + "<br><b>Waffle </b>" + waffle + "<br><b>Expression </b>" + expression + "<br><b>Accessory </b>" + accessory;
 
     }
 
@@ -222,6 +224,27 @@ window.addEventListener('DOMContentLoaded', () => {
     filterGrid(grid, flavorSelect);
 
     grid.on('layoutEnd', function (items) {
+
+        //Swap out data
+        for (var i = 0; i < items.length; i++) {
+            var number = items[i].getElement().getAttribute("number");
+            var iota = items[i].getElement().getAttribute("iota");
+            var expression = items[i].getElement().getAttribute("expression");
+            var accessory = items[i].getElement().getAttribute("accessory");
+            var tier = items[i].getElement().getAttribute("tier");
+            var flavor = items[i].getElement().getAttribute("flavor");
+            var waffle = items[i].getElement().getAttribute("waffle");
+
+            if (iota == "") { iota = "-"; }
+            if (expression == "") { expression = "-"; }
+            if (accessory == "") { accessory = "-"; }
+
+            items[i].getElement().getElementsByClassName("nftnumber")[0].textContent = number;
+            items[i].getElement().getElementsByClassName("nftinfotext")[0].innerHTML = "<b>Tier </b>" + tier + "<br><b>Flavor </b>" + flavor + "<br><b>IOTA </b>" + iota + "<br><b>Waffle </b>" + waffle + "<br><b>Expression </b>" + expression + "<br><b>Accessory </b>" + accessory;
+        }
+
+
+
         gridElement.style.top = "0px";
         gridElement.style.visibility = "visible";
         selectContainer.style.visibility = "visible";
