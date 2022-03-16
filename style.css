@@ -10,8 +10,118 @@
     padding: 10px;
 }
 
+.ranking, #rankdescription {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 500px;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    align-items: center;
+}
+
+#rankdescription {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#updated {
+    width: 80%;
+    text-align: right;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 12px;
+}
+
+#gold {
+    background: linear-gradient(60deg,
+            hsl(224, 85%, 66%),
+            hsl(269, 85%, 66%),
+            hsl(314, 85%, 66%),
+            hsl(359, 85%, 66%),
+            hsl(44, 85%, 66%),
+            hsl(89, 85%, 66%),
+            hsl(134, 85%, 66%),
+            hsl(179, 85%, 66%)),
+            rgb(255, 255, 255, 0.1);
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    animation: moveGradient 5s alternate infinite;
+}
+
+@keyframes moveGradient {
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+#gold {
+    font-size: 32px;
+    font-weight: bold;
+    height: 100px;
+}
+
+#silver {
+    background: linear-gradient(60deg,
+            hsl(224, 85%, 66%, 50%),
+            hsl(269, 85%, 66%, 50%),
+            hsl(314, 85%, 66%, 50%),
+            hsl(359, 85%, 66%, 50%),
+            hsl(44, 85%, 66%, 50%),
+            hsl(89, 85%, 66%, 50%),
+            hsl(134, 85%, 66%, 50%),
+            hsl(179, 85%, 66%, 50%)),
+            rgb(255, 255, 255, 0.1);
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    animation: moveGradient 5s alternate infinite;
+    
+    font-size: 26px;
+    font-weight: bold;
+    height: 90px;
+}
+
+#bronze {
+    background: linear-gradient(60deg,
+            hsl(224, 85%, 66%, 20%),
+            hsl(269, 85%, 66%, 20%),
+            hsl(314, 85%, 66%, 20%),
+            hsl(359, 85%, 66%, 20%),
+            hsl(44, 85%, 66%, 20%),
+            hsl(89, 85%, 66%, 20%),
+            hsl(134, 85%, 66%, 20%),
+            hsl(179, 85%, 66%, 20%)),
+            rgb(255, 255, 255, 0.1);
+    background-size: 300% 300%;
+    background-position: 0 50%;
+    animation: moveGradient 5s alternate infinite;
+
+
+    font-size: 22px;
+    font-weight: bold;
+    height: 70px;
+}
+
+.ranking_02 {
+    overflow: hidden;
+}
+
+#rest {
+    height: 50px;
+}
+
 #current {
     background-image: linear-gradient(-180deg, #e680b885 0%, #dd4aa08e 100%);
+}
+
+video {
+    border-radius: 20px;
 }
 
 #current:hover {
@@ -170,9 +280,11 @@ a {
     }
 }
 
-
 #button-container {
     text-align: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .connectButton {
@@ -184,9 +296,10 @@ a {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
         Helvetica, Arial, "Lucida Grande", sans-serif;
     cursor: pointer;
-    width: 150px;
+    width: 200px;
     height: 50px;
     font-size: 20px;
+    margin-top: 20px;
     margin-left: 5px;
     margin-right: 5px;
     text-align: center;
