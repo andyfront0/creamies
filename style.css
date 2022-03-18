@@ -50,7 +50,7 @@
             hsl(89, 85%, 66%),
             hsl(134, 85%, 66%),
             hsl(179, 85%, 66%)),
-            rgb(255, 255, 255, 0.1);
+        rgb(255, 255, 255, 0.1);
     background-size: 300% 300%;
     background-position: 0 50%;
     animation: moveGradient 5s alternate infinite;
@@ -78,11 +78,11 @@
             hsl(89, 85%, 66%, 50%),
             hsl(134, 85%, 66%, 50%),
             hsl(179, 85%, 66%, 50%)),
-            rgb(255, 255, 255, 0.1);
+        rgb(255, 255, 255, 0.1);
     background-size: 300% 300%;
     background-position: 0 50%;
     animation: moveGradient 5s alternate infinite;
-    
+
     font-size: 26px;
     font-weight: bold;
     height: 90px;
@@ -98,7 +98,7 @@
             hsl(89, 85%, 66%, 20%),
             hsl(134, 85%, 66%, 20%),
             hsl(179, 85%, 66%, 20%)),
-            rgb(255, 255, 255, 0.1);
+        rgb(255, 255, 255, 0.1);
     background-size: 300% 300%;
     background-position: 0 50%;
     animation: moveGradient 5s alternate infinite;
@@ -283,7 +283,7 @@ a {
 
 #button-container {
     text-align: center;
-    width: 90%;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -297,9 +297,9 @@ a {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
         Helvetica, Arial, "Lucida Grande", sans-serif;
     cursor: pointer;
-    width: 200px;
-    height: 50px;
-    font-size: 20px;
+    width: 150px;
+    height: 45px;
+    font-size: 18px;
     margin-top: 20px;
     margin-left: 5px;
     margin-right: 5px;
