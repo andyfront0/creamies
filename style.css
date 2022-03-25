@@ -298,8 +298,8 @@ a {
         Helvetica, Arial, "Lucida Grande", sans-serif;
     cursor: pointer;
     width: 150px;
-    height: 45px;
-    font-size: 18px;
+    height: 50px;
+    font-size: 20px;
     margin-top: 20px;
     margin-left: 5px;
     margin-right: 5px;
@@ -719,3 +719,103 @@ select option {
 }
 
 /*Social Media Icons End*/
+
+
+
+
+/*MENU*/
+#menu {
+    z-index: 4;
+}
+
+#menu-bar {
+    width: 25px;
+    height: 30px;
+    margin: 30px 0 -15px 20px;
+    cursor: pointer;
+}
+
+.bar {
+    height: 3px;
+    width: 100%;
+    background-color: #ffffff;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+#bar1 {
+    transform: translateY(-4px);
+}
+
+#bar3 {
+    transform: translateY(4px);
+}
+
+.nav {
+    transition: 0.3s ease;
+    display: none;
+    text-align: left;
+}
+
+.nav ul {
+    padding: 0 22px;
+}
+
+.nav li {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.nav li a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.nav li a:hover {
+    font-weight: bold;
+}
+
+.menu-bg, #menu {
+    top: 0px;
+    left: 0px;
+    position: fixed;
+}
+
+.menu-bg {
+    z-index: 2;
+    width: 440px;
+    height: 415px;
+    transform: scaleX(0.0000001) scaleY(0.0000001);
+    transform-origin:top left;
+    margin: 30px 0 20px 20px;
+    background-image: linear-gradient(-180deg, #e680b8 0%, #DD4AA0 100%);
+    border-radius: 50%;
+    transition: 0.3s ease;
+}
+
+.change {
+    display: block;
+}
+
+.change .bar {
+    background-color: white;
+}
+
+.change #bar1 {
+    transform: translateY(2.5px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+    opacity: 0;
+}
+
+.change #bar3 {
+    transform: translateY(-3.8px) rotateZ(45deg);
+}
+
+.change-bg {
+    transform: translate(-60%, -30%) scaleX(1) scaleY(1);
+}
+/*MENU END*/

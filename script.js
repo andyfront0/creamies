@@ -64,4 +64,12 @@ window.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: scrollStop.offsetTop - 30, left: 0, behavior: 'smooth' });
     }
     //----------------SCROLL BUTTON BEHAVIOUR END-----------------
+
+    //-----------------------------MENU---------------------------------
+    document.getElementById("menu-bar").onclick = function () {
+        document.getElementById("menu-bg").classList.toggle("change-bg");
+        document.getElementById("menu-bar").classList.toggle("change");
+        document.getElementById("nav").classList.toggle("change");
+    }
+    //----------------------------MENU END-------------------------------
 });
