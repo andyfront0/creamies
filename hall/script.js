@@ -888,8 +888,8 @@ const list = document.getElementById("list");
 
 //Duplicate Elements
 for (var i = 0; i < user.length - 4; i++) {
-    var newItem = rest.cloneNode(true);
-    list.appendChild(newItem);
+  var newItem = rest.cloneNode(true);
+  list.appendChild(newItem);
 }
 
 const ranking = document.getElementsByClassName("ranking");
@@ -898,12 +898,25 @@ const ranking_02 = document.getElementsByClassName("ranking_02");
 const ranking_03 = document.getElementsByClassName("ranking_03");
 
 for (var i = 0; i < ranking.length; i++) {
-    var username = user[i];
-    var rank = i + 1;
-    if (rank == 1) { rank = rank + "🥇"; }
-    if (rank == 2) { rank = rank + "🥈"; }
-    if (rank == 3) { rank = rank + "🥉"; }
-    ranking_01[i].textContent = rank;
-    ranking_02[i].innerHTML = "<a target='_blank' href=" + members[i] + "/nfts>" + user[i] + "</a>";
-    ranking_03[i].textContent = number[i];
+  var username = user[i];
+  var rank = i + 1;
+  if (rank == 1) { rank = rank + "🥇"; }
+  if (rank == 2) { rank = rank + "🥈"; }
+  if (rank == 3) { rank = rank + "🥉"; }
+  ranking_01[i].textContent = rank;
+  ranking_02[i].innerHTML = "<a target='_blank' href=" + members[i] + "/nfts>" + user[i] + "</a>";
+  ranking_03[i].textContent = number[i];
 }
+
+
+
+//On Load
+window.addEventListener('DOMContentLoaded', () => {
+  //-----------------------------MENU---------------------------------
+  document.getElementById("menu-bar").onclick = function () {
+    document.getElementById("menu-bar").classList.toggle("change");
+    document.getElementById("nav").classList.toggle("change");
+    document.getElementById("menu-bg").classList.toggle("change-bg");
+  }
+  //----------------------------MENU END-------------------------------
+});

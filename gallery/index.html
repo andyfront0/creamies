@@ -20,13 +20,31 @@
 </head>
 
 <body>
-    <div id="navbarContainer">
-        <a class="navlink" href="../">Home</a>
-        <a class="navlink" id="current" href=".">Gallery</a>
-        <a class="navlink" href="../hall/">Hall of Fame</a>
+
+    <!----------------------MENU------------------------>
+    <div id="menu">
+        <div id="menu-bar">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+        </div>
+        <nav class="nav" id="nav">
+            <ul>
+                <li><a href="../">Home</a></li>
+                <li><a target="_blank"
+                        href="https://soonaverse.com/collection/0x1c9460ebf38ceff31362b708bf4d079ab516246d">Buy</a>
+                </li>
+                <li><a href="../hall">Hall of Fame</a></li>
+
+                <li><a href="."><b>Gallery</b></a></li>
+            </ul>
+        </nav>
     </div>
-    <a target="_blank" href="https://twitter.com/iotacreamies"><img src="../assets/twitter.png" data-src="../assets/twitter.png"
-            id="twitter"></a>
+    <div class="menu-bg" id="menu-bg"></div>
+    <!----------------------MENU END------------------------>
+    
+    <a target="_blank" href="https://twitter.com/iotacreamies"><img src="../assets/twitter.png"
+            data-src="../assets/twitter.png" id="twitter"></a>
 
     <div id="main">
         <br>
@@ -140,7 +158,8 @@
                     <span class="nftnumber"></span>
                     <div class="nftinfo" onclick="">
                         <span class="nftinfotext"></span>
-                        <a target="_blank" href="" class="buyLink"><button class="mintButton" role="button">Buy</button></a>
+                        <a target="_blank" href="" class="buyLink"><button class="mintButton"
+                                role="button">Buy</button></a>
                     </div>
                 </div>
             </div>
