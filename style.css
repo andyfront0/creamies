@@ -10,6 +10,10 @@
     padding: 10px;
 }
 
+#rankingcontainer {
+    visibility: hidden;
+}
+
 .ranking, #rankdescription {
     width: 80%;
     background-color: rgba(255, 255, 255, 0.15);
