@@ -217,19 +217,6 @@ html {
 }
 
 
-#address {
-    visibility: hidden;
-}
-
-#addresstext {
-    visibility: hidden;
-}
-
-#nftcontainer {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 #iotalogo {
     width: 100px;
@@ -502,11 +489,6 @@ a {
     margin: 0 auto;
 }
 
-.nftimage {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-}
 
 .item {
     display: block;
@@ -840,7 +822,58 @@ select option {
 /*MENU END*/
 
 
-.nftitems {
+
+
+
+
+/*PROFILE PAGE*/
+
+#maincontainer {
+    visibility: hidden;
+}
+
+#nftcontainerCreamies {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nftitemsCreamies {
+    visibility: hidden;
+    padding: 5px;
+    width: 200px;
+    display:inline-block;
+}
+
+.nftimageCreamies {
+    border: 0px #ff7bc4 solid;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    transition: border 0.1s ease-in-out;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+
+.nftimageCreamies:hover {
+    border: 3px #ff7bc4 solid;
+}
+
+.nftnameCreamies {
+    width: 100%;
+   /* visibility: hidden;*/
+}
+
+
+#nftcontainerOthers {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nftitemsOthers {
     visibility: hidden;
     border-radius: 20px;
     padding: 5px;
@@ -848,19 +881,31 @@ select option {
     display:inline-block;
 }
 
-.nftimage {
+.nftimageOthers {
     border: 0px #ff7bc4 solid;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     transition: border 0.1s ease-in-out;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
 }
 
-.nftimage:hover {
+.nftimageOthers:hover {
     border: 3px #ff7bc4 solid;
 }
 
-.nftname {
+.nftnameOthers {
     width: 100%;
+   /* visibility: hidden;*/
+}
+
+#address {
     visibility: hidden;
 }
+
+#addresstext {
+    visibility: hidden;
+}
+/*PROFILE PAGE END*/
