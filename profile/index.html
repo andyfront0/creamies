@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Hall of Fame</title>
+    <title>Profile</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -34,9 +34,9 @@
                 <li><a target="_blank"
                         href="https://soonaverse.com/collection/0x1c9460ebf38ceff31362b708bf4d079ab516246d">Buy</a>
                 </li>
-                <li><a href="."><b>Hall of Fame</b></a></li>
+                <li><a href="../hall">Hall of Fame</a></li>
                 <li><a href="../gallery">Gallery</a></li>
-                <li><a href="../profile">Profile</a></li>
+                <li><a href="."><b>Profile</b></a></li>
             </ul>
         </nav>
     </div>
@@ -48,42 +48,21 @@
 
     <div id="main">
         <br>
-        <h1>Hall of Fame</h1>
+        <h1>Profile</h1>
         <br>
-        <!--<div id="loader"></div>
+        <span id="addresstext"><b>Address</b></span>
+        <span id="address"></span>
+        <p id="info">Connecting to MetaMask...</p>
         <br>
-        <span id="loaderText">loading...</span>-->
-        <p id="updated">updated April 19th, 2022 21:00 CET (daily)</p>
-        <!--<div id="rankingcontainer">
-            <p id="updated">real-time updates via Soonaverse API</p>-->
-            <div id="rankdescription">
-                <div>Rank</div>
-                <div>Name</div>
-                <div>NFTs</div>
+        <br>
+        <div id="nftcontainer">
+            <div class="nftitems">
+                <span class="nftname">Name</span>
+                <a target="_blank" class="nftlink" href="">
+                    <img class="nftimage" index="" src="">
+                </a>
             </div>
-            <div id="list">
-                <div class="ranking" id="gold">
-                    <div class="ranking_01"></div>
-                    <div class="ranking_02"></div>
-                    <div class="ranking_03"></div>
-                </div>
-                <div class="ranking" id="silver">
-                    <div class="ranking_01"></div>
-                    <div class="ranking_02"></div>
-                    <div class="ranking_03"></div>
-                </div>
-                <div class="ranking" id="bronze">
-                    <div class="ranking_01"></div>
-                    <div class="ranking_02"></div>
-                    <div class="ranking_03"></div>
-                </div>
-                <div class="ranking" id="rest">
-                    <div class="ranking_01"></div>
-                    <div class="ranking_02"></div>
-                    <div class="ranking_03"></div>
-                </div>
-            </div>
-        <!--</div>-->
+        </div>
         <br>
         <br>
         powered by

@@ -216,6 +216,21 @@ html {
     }
 }
 
+
+#address {
+    visibility: hidden;
+}
+
+#addresstext {
+    visibility: hidden;
+}
+
+#nftcontainer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #iotalogo {
     width: 100px;
     padding-top: 5px;
@@ -768,7 +783,7 @@ select option {
 
 .nav li {
     list-style: none;
-    padding: 10px 0;
+    padding: 8px 0;
 }
 
 .nav li a {
@@ -823,3 +838,29 @@ select option {
     transform: translate(-60%, -30%) scaleX(1) scaleY(1);
 }
 /*MENU END*/
+
+
+.nftitems {
+    visibility: hidden;
+    border-radius: 20px;
+    padding: 5px;
+    width: 200px;
+    display:inline-block;
+}
+
+.nftimage {
+    border: 0px #ff7bc4 solid;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    transition: border 0.1s ease-in-out;
+}
+
+.nftimage:hover {
+    border: 3px #ff7bc4 solid;
+}
+
+.nftname {
+    width: 100%;
+    visibility: hidden;
+}
