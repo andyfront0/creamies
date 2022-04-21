@@ -38,7 +38,6 @@ async function getAccount() {
 
     if (obj.length > 0) {
 
-      //Duplicate Elements
       for (var i = 0; i < obj.length; i++) {
 
       //Check if Creamies or not

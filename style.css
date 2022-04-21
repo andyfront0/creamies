@@ -551,6 +551,12 @@ select option {
     background: rgb(75, 75, 75);
 }
 
+.nftimage {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
 #typeNumber {
     width: 100%;
     background-color: rgb(255, 255, 255, 0.3);
