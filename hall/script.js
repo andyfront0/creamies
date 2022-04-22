@@ -1,4 +1,4 @@
-const user = [
+/*const user = [
   "EarlyIOTAfan",
   "Makery",
   "IOTAEd",
@@ -1031,7 +1031,7 @@ const members = [
   "http://soonaverse.com/member/0x68d8ecb6d3f899c5ab761fc507906cd1f77ad6af",
   "http://soonaverse.com/member/0xc6f7167bbfdf67fed96268cba471ce82e226e91c"
 ];
-
+*/
 const rest = document.getElementById("rest");
 const list = document.getElementById("list");
 const loaderText = document.getElementById("loaderText");
@@ -1044,7 +1044,6 @@ const ranking_03 = document.getElementsByClassName("ranking_03");
 
 //var NFTcounter = 0;
 //var NFTowners = new Array(100);
-
 /*
 window.soon.getNftsByCollections(['0x2c4ba46d0c76184f368a789141d8affe86f1d818', '0x1c9460ebf38ceff31362b708bf4d079ab516246d']).then((obj) => {
   console.log(obj);
@@ -1053,6 +1052,52 @@ window.soon.getNftsByCollections(['0x2c4ba46d0c76184f368a789141d8affe86f1d818', 
     console.log(obj[i].name);
   }
 });*/
+
+
+
+window.soon.getNftsByCollections(['0x1c9460ebf38ceff31362b708bf4d079ab516246d', '0x2c4ba46d0c76184f368a789141d8affe86f1d818']).then((obj) => {
+  const count = {};
+  const owners = new Array();
+
+  //Creates array from obj
+  for (var i = 0; i < obj.length; i++) {
+    if (obj[i].owner != null) {
+      owners.push(obj[i].owner);
+    }
+  }
+
+  //Delete duplicates and count them
+  owners.forEach(element => {
+    count[element] = (count[element] || 0) + 1;
+  });
+
+  //Sort
+  let sorted = Object.entries(count).sort((a, b) => a[1] - b[1]);
+  sorted.reverse();
+
+  //Duplicate Elements
+  for (var i = 0; i < sorted.length - 4; i++) {
+    var newItem = rest.cloneNode(true);
+    list.appendChild(newItem);
+  }
+
+  //Update List
+  for (var i = 0; i < sorted.length; i++) {
+    var username = sorted[i][0];
+    var rank = i + 1;
+    if (rank == 1) { rank = rank + "🥇"; }
+    if (rank == 2) { rank = rank + "🥈"; }
+    if (rank == 3) { rank = rank + "🥉"; }
+    ranking_01[i].textContent = rank;
+    ranking_02[i].innerHTML = "<a target='_blank' href='https://soonaverse.com/member/" + sorted[i][0] + "/nfts'>" + sorted[i][0] + "</a>";
+    ranking_03[i].textContent = sorted[i][1];
+  }
+
+  //Show
+  loaderText.style.display = "none";
+  loader.style.display = "none";
+  container.style.visibility = "visible";
+});
 
 
 
@@ -1093,7 +1138,7 @@ window.soon.getNftsByCollections(['0x2c4ba46d0c76184f368a789141d8affe86f1d818', 
 }
 */
 
-
+/*
 //Duplicate Elements
 for (var i = 0; i < user.length - 4; i++) {
   var newItem = rest.cloneNode(true);
@@ -1110,7 +1155,7 @@ for (var i = 0; i < ranking.length; i++) {
   ranking_01[i].textContent = rank;
   ranking_02[i].innerHTML = "<a target='_blank' href=" + members[i] + "/nfts>" + user[i] + "</a>";
   ranking_03[i].textContent = number[i];
-}
+}*/
 
 
 //On Load
