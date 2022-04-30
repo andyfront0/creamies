@@ -29,7 +29,7 @@ async function getAccount() {
   account = accounts[0];
 
   window.soon.getNftsByEthAddress(account).then((obj) => {
-    console.log(obj);
+    //console.log(obj);
     address.textContent = account;
     loader.style.display = "none";
     addresstext.style.visibility = "visible";
