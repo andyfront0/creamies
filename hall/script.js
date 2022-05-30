@@ -8,6 +8,7 @@ const ranking_01 = document.getElementsByClassName("ranking_01");
 const ranking_02 = document.getElementsByClassName("ranking_02");
 const ranking_03 = document.getElementsByClassName("ranking_03");
 
+
 window.soon.getRankingByCollections(['0x1c9460ebf38ceff31362b708bf4d079ab516246d', '0x2c4ba46d0c76184f368a789141d8affe86f1d818', '0xa362da9efdecc02482d76db36138dbef2e80fff3', '0xdedd84cdd2ee62957ddb8f915cfadfe1555f5a35']).then((obj) => {
 
   var names = new Array();
