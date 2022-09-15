@@ -6,8 +6,9 @@ var iotaSelector = "";
 var expressionSelector = "";
 var accessorySelector = "";
 var numberSelector = "";
-//var availableSelector = "";
+var availableSelector = "";
 var sorted = true;
+var available = false;
 var randomFlavor;
 var nftarray;
 var nftadresses = [];
@@ -21,7 +22,9 @@ var accessorySelect = document.getElementById("selectAccessory");
 var counterElement = document.getElementById("counter");
 var counterContainerElement = document.getElementById("countercontainer");
 var sortbyContainerElement = document.getElementById("sortbyContainer");
+var availableContainerElement = document.getElementById("availableContainer");
 var sortbySelect = document.getElementById("sortby");
+var availableSelect = document.getElementById("available");
 var typeNumberInput = document.getElementById("typeNumber");
 var selectContainer = document.getElementById("selectContainer");
 var filterDescription = document.getElementById("filterDescription");
@@ -62,14 +65,12 @@ function filterGrid(grid, sel) {
     if (sel.id == "selectIota" && sel.selectedIndex != 0) { iotaSelector = '[iota="' + sel.options[sel.selectedIndex].id + '"]'; }
     if (sel.id == "selectExpression" && sel.selectedIndex != 0) { expressionSelector = '[expression="' + sel.options[sel.selectedIndex].id + '"]'; }
     if (sel.id == "selectAccessory" && sel.selectedIndex != 0) { accessorySelector = '[accessory="' + sel.options[sel.selectedIndex].id + '"]'; }
-    //if (sel.id == "selectAvailable" && sel.selectedIndex != 0) { availableSelector = '[available="' + sel.options[sel.selectedIndex].id + '"]'; }
 
     if (sel.id == "selectFlavor" && sel.selectedIndex == 0) { flavorSelector = "[flavor]"; }
     if (sel.id == "selectWaffle" && sel.selectedIndex == 0) { waffleSelector = "[waffle]"; }
     if (sel.id == "selectIota" && sel.selectedIndex == 0) { iotaSelector = "[iota]"; }
     if (sel.id == "selectExpression" && sel.selectedIndex == 0) { expressionSelector = "[expression]"; }
     if (sel.id == "selectAccessory" && sel.selectedIndex == 0) { accessorySelector = "[accessory]"; }
-    //if (sel.id == "selectAvailable" && sel.selectedIndex == 0) { availableSelector = "[available]"; }
 
 
     if (sel.id == "typeNumber" && sel.value != "" && sel.value != "0") {
@@ -83,6 +84,9 @@ function filterGrid(grid, sel) {
         iotaSelector = "[iota]";
         expressionSelector = "[expression]";
         accessorySelector = "[accessory]";
+        availableSelector = "[owned]";
+        availableSelect.textContent = "All NFTs";
+        available = true;
         numberSelector = '[number="' + typeNumberInput.value + '"]';
     } else if (sel.id == "typeNumber") {
         //Filter nach Random Flavor (saves Performance from the start)
@@ -90,9 +94,15 @@ function filterGrid(grid, sel) {
         flavorSelector = "[flavor='" + flavorSelect.options[randomFlavor].id + "']";
         typeNumberInput.value = "";
         numberSelector = "[number]";
+        availableSelector = "[owned='false']";
+        availableSelect.textContent = "Available";
+        available = false;
     }
 
-    gridSelector = numberSelector + flavorSelector + waffleSelector + iotaSelector + expressionSelector + accessorySelector;
+    //Available Selector
+    if (available) { availableSelector = "[owned]"; } else { availableSelector = "[owned='false']"; }
+
+    gridSelector = numberSelector + flavorSelector + waffleSelector + iotaSelector + expressionSelector + accessorySelector + availableSelector;
 
     //Cant be empty
     if (gridSelector == "") {
@@ -152,7 +162,6 @@ window.addEventListener('DOMContentLoaded', () => {
             if (obj[i].isOwned) {
                 mintButtons[i].disabled = true;
                 mintButtons[i].textContent = "Sold";
-                nftImages[i].style.filter = "brightness(70%)";
                 nftImages[i].style.opacity = 0.5;
             }
 
@@ -161,6 +170,7 @@ window.addEventListener('DOMContentLoaded', () => {
             item.setAttribute("tier", data[1]);
             item.setAttribute("flavor", data[2]);
             item.setAttribute("waffle", data[3]);
+            item.setAttribute("owned", obj[i].isOwned)
             if (data[4].includes("iota")) item.setAttribute("iota", data[4]); else item.setAttribute("expression", data[4]);
             if (data.length > 5) item.setAttribute("accessory", data[5]);
             if (data.length > 6) item.setAttribute("accessory", data[5] + " " + data[6]);
@@ -263,6 +273,7 @@ window.addEventListener('DOMContentLoaded', () => {
             filterDescription.style.visibility = "visible";
             counterContainerElement.style.visibility = "visible";
             sortbyContainerElement.style.visibility = "visible";
+            availableContainerElement.style.visibility = "visible";
             loaderElement.style.display = "none";
             loaderText.style.display = "none";
             poweredIOTA.id = "poweredAfter";
@@ -307,14 +318,26 @@ window.addEventListener('DOMContentLoaded', () => {
         //Sort
         sortbySelect.onclick = function () {
             if (!sorted) {
-                sortbySelect.textContent = "Random";
+                sortbySelect.textContent = "Number ▴";
                 sorted = true;
                 grid.sort('number');
             } else {
-                sortbySelect.textContent = "Number ▴";
+                sortbySelect.textContent = "Random";
                 sorted = false;
                 grid.sort(shuffle(grid.getItems()));
             }
+        }
+
+        //Available
+        availableSelect.onclick = function () {
+            if (!available) {
+                availableSelect.textContent = "All NFTs";
+                available = true;
+            } else {
+                availableSelect.textContent = "Available";
+                available = false;
+            }
+            filterGrid(grid, availableSelect);
         }
         //-------------------------------------------NFT PAGE GRID END----------------------------------------------
 
