@@ -8,7 +8,7 @@ var accessorySelector = "";
 var numberSelector = "";
 var availableSelector = "";
 var sorted = true;
-var available = false;
+var available = true;
 var randomFlavor;
 var nftarray;
 var nftadresses = [];
@@ -94,9 +94,6 @@ function filterGrid(grid, sel) {
         flavorSelector = "[flavor='" + flavorSelect.options[randomFlavor].id + "']";
         typeNumberInput.value = "";
         numberSelector = "[number]";
-        availableSelector = "[owned='false']";
-        availableSelect.textContent = "Available";
-        available = false;
     }
 
     //Available Selector
