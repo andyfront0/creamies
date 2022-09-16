@@ -28,6 +28,7 @@ var availableSelect = document.getElementById("available");
 var typeNumberInput = document.getElementById("typeNumber");
 var selectContainer = document.getElementById("selectContainer");
 var filterDescription = document.getElementById("filterDescription");
+var ownedContainerElement = document.getElementsByClassName("nftownedcontainer");
 var poweredIOTA = document.getElementById("powered");
 var loaderElement = document.getElementById("loader");
 var loaderText = document.getElementById("loaderText");
@@ -157,9 +158,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
             //Apply NFT Adresses
             if (obj[i].isOwned) {
-                mintButtons[i].disabled = true;
-                mintButtons[i].textContent = "Sold";
+                //mintButtons[i].disabled = true;
+                mintButtons[i].textContent = "Go";
                 nftImages[i].style.opacity = 0.5;
+                ownedContainerElement[i].style.display = "unset";
             }
 
 
