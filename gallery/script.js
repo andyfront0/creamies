@@ -7,7 +7,7 @@ var expressionSelector = "";
 var accessorySelector = "";
 var numberSelector = "";
 var availableSelector = "";
-var sorted = true;
+var sorted = 0;
 var available = true;
 var randomFlavor;
 var nftarray;
@@ -181,6 +181,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 number: function (item, element) {
                     return parseFloat(element.getAttribute('number'));
                 },
+                tier: function (item, element) {
+                    return parseFloat(element.getAttribute('tier'));
+                },
             },
         });
 
@@ -316,14 +319,18 @@ window.addEventListener('DOMContentLoaded', () => {
 
         //Sort
         sortbySelect.onclick = function () {
-            if (!sorted) {
-                sortbySelect.textContent = "Number ▴";
-                sorted = true;
-                grid.sort('number');
-            } else {
+            if (sorted == 0) {
+                sortbySelect.textContent = "Tier ▾";
+                sorted = 1;
+                grid.sort('tier:desc');
+            } else if (sorted == 1) {
                 sortbySelect.textContent = "Random";
-                sorted = false;
+                sorted = 2;
                 grid.sort(shuffle(grid.getItems()));
+            } else if (sorted == 2) {
+                sortbySelect.textContent = "Number ▴";
+                sorted = 0;
+                grid.sort('number');
             }
         }
 
