@@ -9,50 +9,88 @@ const ranking_02 = document.getElementsByClassName("ranking_02");
 const ranking_03 = document.getElementsByClassName("ranking_03");
 
 
-window.soon.getRankingByCollections(['0x1c9460ebf38ceff31362b708bf4d079ab516246d', '0x2c4ba46d0c76184f368a789141d8affe86f1d818', '0xa362da9efdecc02482d76db36138dbef2e80fff3', '0xdedd84cdd2ee62957ddb8f915cfadfe1555f5a35']).then((obj) => {
+//Fetch NFT List from Soonaverse
+async function getRankingOfSpace(uid) {
 
-  var names = new Array();
+  let join = []; let response; let data;
+  let length = 100;
+  let type = "space";
+  let url = "https://soonaverse.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid;
+
+  //Solange bis Liste aller NFTs in der Collection empfangen sind, do this.
+  //Wenn weniger als 100 empfangen werden, dann ist es die letze Page in der API
+  while (length == 100) {
+    response = await fetch(url);
+    data = await response.json();
+
+    if (url.search("startAfter") == -1) {
+      url = url + "&startAfter=" + data[data.length - 1].id;
+    } else {
+      url = url.substring(0, url.length - 42);
+      url = url + data[data.length - 1].id;
+    }
+    join = join.concat(data);
+    length = data.length;
+    loaderText.textContent = join.length + " of 2147 NFTs loaded...";
+
+  }
+
+
+  //Determine ranking from data
+  const counts = {};
+  join.forEach(function (x) { counts[x.owner] = (counts[x.owner] || 0) + 1; });
+
+  //Sort
+  let sortable = [];
+  for (var entry in counts) {
+    sortable.push([entry, counts[entry]]);
+  }
+
+  sortable.sort(function (a, b) {
+    return b[1] - a[1];
+  });
+
+  return sortable;
+}
+
+
+getRankingOfSpace("0xa8e2122d528809861a925d90e5edff5c685825df").then(obj => {
+
+
   var addresses = new Array();
   var nfts = new Array();
 
   for (var i = 0; i < obj.length; i++) {
 
     //Skip 0 count
-    if (obj[i].count == 0) continue;
+    if (i == 0) continue;
 
-    if (obj[i].member == null) {
-      names.push(obj[i].uid);
-    } else {
-      names.push(obj[i].member);
-    }
-
-    addresses.push(obj[i].uid);
-    nfts.push(obj[i].count);
-
+    addresses.push(obj[i][0]);
+    nfts.push(obj[i][1]);
   }
- 
-    //Duplicate Elements
-    for (var i = 0; i < addresses.length - 4; i++) {
-      var newItem = rest.cloneNode(true);
-      list.appendChild(newItem);
-    }
 
-    //Update List
-    for (var i = 0; i < addresses.length; i++) {
-      var username = names[i];
-      var rank = i + 1;
-      if (rank == 1) { rank = rank + "🥇"; }
-      if (rank == 2) { rank = rank + "🥈"; }
-      if (rank == 3) { rank = rank + "🥉"; }
-      ranking_01[i].textContent = rank;
-      ranking_02[i].innerHTML = "<a target='_blank' href='https://soonaverse.com/member/" + addresses[i] + "/nfts'>" + names[i] + "</a>";
-      ranking_03[i].textContent = nfts[i];
-    }
+  //Duplicate Elements
+  for (var i = 0; i < addresses.length - 4; i++) {
+    var newItem = rest.cloneNode(true);
+    list.appendChild(newItem);
+  }
 
-    //Show
-    loaderText.style.display = "none";
-    loader.style.display = "none";
-    container.style.visibility = "visible";
+  //Update List
+  for (var i = 0; i < addresses.length; i++) {
+    var rank = i + 1;
+    if (rank == 1) { rank = rank + "🥇"; }
+    if (rank == 2) { rank = rank + "🥈"; }
+    if (rank == 3) { rank = rank + "🥉"; }
+    ranking_01[i].textContent = rank;
+    ranking_02[i].innerHTML = "<a target='_blank' href='https://soonaverse.com/member/" + addresses[i] + "/nfts'>" + addresses[i] + "</a>";
+    ranking_03[i].textContent = nfts[i];
+  }
+
+  //Show
+  loaderText.style.display = "none";
+  loader.style.display = "none";
+  container.style.visibility = "visible";
+
 });
 
 //On Load

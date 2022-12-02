@@ -24,12 +24,42 @@ var indexOthers = new Array();
 var account;
 
 
+
+//Fetch Member Info from Soonaverse
+async function getMember(uid) {
+
+  let join = []; let response; let data;
+  let length = 100;
+  let type = "owner";
+  let url = "https://soonaverse.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid;
+
+  //Solange bis Liste aller NFTs in der Collection empfangen sind, do this.
+  //Wenn weniger als 100 empfangen werden, dann ist es die letze Page in der API
+  while (length == 100) {
+    response = await fetch(url);
+    data = await response.json();
+
+    if (url.search("startAfter") == -1) {
+      url = url + "&startAfter=" + data[data.length - 1].id;
+    } else {
+      url = url.substring(0, url.length - 42);
+      url = url + data[data.length - 1].id;
+    }
+    join = join.concat(data);
+    length = data.length;
+    info.textContent = join.length + " NFTs loaded...";
+  }
+
+  return data;
+}
+
 async function getAccount() {
   const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
   account = accounts[0];
 
-  window.soon.getNftsByEthAddress(account).then((obj) => {
-    //console.log(obj);
+
+  getMember(account).then(obj => {
+
     address.textContent = account;
     loader.style.display = "none";
     addresstext.style.visibility = "visible";
@@ -40,7 +70,7 @@ async function getAccount() {
 
       for (var i = 0; i < obj.length; i++) {
 
-      //Check if Creamies or not
+        //Check if Creamies or not
         if (obj[i].space == "0xa8e2122d528809861a925d90e5edff5c685825df") {
           indexCreamies.push(i);
         } else {
@@ -49,12 +79,12 @@ async function getAccount() {
       }
 
       //Duplicate
-      for (var i = 0; i < indexCreamies.length-1; i++) {
+      for (var i = 0; i < indexCreamies.length - 1; i++) {
         var newItem = itemsCreamies[0].cloneNode(true);
         containerCreamies.appendChild(newItem);
       }
 
-      for (var i = 0; i < indexOthers.length-1; i++) {
+      for (var i = 0; i < indexOthers.length - 1; i++) {
         var newItem = itemsOthers[0].cloneNode(true);
         containerOthers.appendChild(newItem);
       }
@@ -62,20 +92,20 @@ async function getAccount() {
 
       //Apply Images for Creamies
       for (var i = 0; i < indexCreamies.length; i++) {
-          nothingCreamies.style.display = "none";
-          imagesCreamies[i].src = obj[indexCreamies[i]].media;
-          namesCreamies[i].textContent = obj[indexCreamies[i]].name;
-          linkCreamies[i].href = "https://soonaverse.com/nft/" + obj[indexCreamies[i]].uid;
-          itemsCreamies[i].style.visibility = "visible";
+        nothingCreamies.style.display = "none";
+        imagesCreamies[i].src = obj[indexCreamies[i]].media;
+        namesCreamies[i].textContent = obj[indexCreamies[i]].name;
+        linkCreamies[i].href = "https://soonaverse.com/nft/" + obj[indexCreamies[i]].uid;
+        itemsCreamies[i].style.visibility = "visible";
       }
 
       //Apply Images for Others
       for (var i = 0; i < indexOthers.length; i++) {
-          nothingOthers.style.display = "none";
-          imagesOthers[i].src = obj[indexOthers[i]].media;
-          namesOthers[i].textContent = obj[indexOthers[i]].name;
-          linkOthers[i].href = "https://soonaverse.com/nft/" + obj[indexOthers[i]].uid;
-          itemsOthers[i].style.visibility = "visible";
+        nothingOthers.style.display = "none";
+        imagesOthers[i].src = obj[indexOthers[i]].media;
+        namesOthers[i].textContent = obj[indexOthers[i]].name;
+        linkOthers[i].href = "https://soonaverse.com/nft/" + obj[indexOthers[i]].uid;
+        itemsOthers[i].style.visibility = "visible";
       }
 
       //Make visible
@@ -86,7 +116,6 @@ async function getAccount() {
     }
   });
 }
-
 
 //On Load
 window.addEventListener('DOMContentLoaded', () => {
