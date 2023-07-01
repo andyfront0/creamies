@@ -223,6 +223,8 @@ window.addEventListener('DOMContentLoaded', () => {
     var uid_4 = "0xdedd84cdd2ee62957ddb8f915cfadfe1555f5a35";
     getNFTs(type, uid_1, uid_2, uid_3, uid_4).then(obj => {
 
+        console.log(obj);
+
         //Give every NFT a number value - some don't have this
         for (var i = 0; i < obj.length; i++) {
             if (!obj[i].stats.number) {
@@ -340,7 +342,7 @@ window.addEventListener('DOMContentLoaded', () => {
             buyLinks[i].href = "https://soonaverse.com/nft/" + obj[i].uid;
 
             //Apply NFT Adresses
-            if (!obj[i].sold) {
+            if (obj[i].available) {
                 //mintButtons[i].disabled = true;
                 mintButtons[i].textContent = "Buy";
                 nftImages[i].style.opacity = 1;
