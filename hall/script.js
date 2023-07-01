@@ -31,7 +31,7 @@ async function getRankingOfSpace(uid) {
     }
     join = join.concat(data);
     length = data.length;
-    loaderText.textContent = join.length + " of 2147 NFTs loaded...";
+    loaderText.textContent = join.length + " NFTs loaded...";
 
   }
 
