@@ -8,7 +8,7 @@ var accessorySelector = "";
 var numberSelector = "";
 var availableSelector = "";
 var sorted = 0;
-var available = true;
+var available = 1;
 var randomFlavor;
 var nftarray;
 var nftadresses = [];
@@ -35,99 +35,46 @@ var loaderText = document.getElementById("loaderText");
 
 
 //-------------------------------------------FUNCTIONS------------------------------------------------
+//Set Attributes
+function setAttributes(item, number, tier, waffle, flavor, iota, expression, accessory, available) {
+    item.setAttribute("number", number);
+    item.setAttribute("tier", tier);
+    item.setAttribute("waffle", waffle);
+    item.setAttribute("flavor", flavor);
+    item.setAttribute("iota", iota);
+    item.setAttribute("expression", expression);
+    item.setAttribute("accessory", accessory);
+    item.setAttribute("available", available);
+}
+
+
 //Fetch NFT List from Soonaverse
-async function getNFTs(type, uid_1, uid_2, uid_3, uid_4) {
+async function getNFTs(type, uids = [uid_1, uid_2, uid_3, uid_4]) {
+    let array = [];
+    for (const uid of uids) {
+        let length = 100, response, data, join = [];
+        let url = "https://soonaverse.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid;
 
-    //1st collection
-    let array = []; let join1 = []; let response1; let data1;
-    let length1 = 100;
-    let url1 = "https://soonaverse.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid_1;
+        //Solange bis Liste aller NFTs in der Collection empfangen sind, do this.
+        //Wenn weniger als 100 empfangen werden, dann ist es die letze Page in der API
+        while (length == 100) {
+            response = await fetch(url);
+            data = await response.json();
 
-    //Solange bis Liste aller NFTs in der Collection empfangen sind, do this.
-    //Wenn weniger als 100 empfangen werden, dann ist es die letze Page in der API
-    while (length1 == 100) {
-        response1 = await fetch(url1);
-        data1 = await response1.json();
+            if (url.search("startAfter") == -1) {
+                url = url + "&startAfter=" + data[data.length - 1].id;
+            } else {
+                url = url.substring(0, url.length - 42);
+                url = url + data[data.length - 1].id;
+            }
+            join = join.concat(data);
+            length = data.length;
+            loaderText.textContent = array.length + join.length + " NFTs loaded...";
 
-        if (url1.search("startAfter") == -1) {
-            url1 = url1 + "&startAfter=" + data1[data1.length - 1].id;
-        } else {
-            url1 = url1.substring(0, url1.length - 42);
-            url1 = url1 + data1[data1.length - 1].id;
         }
-        join1 = join1.concat(data1);
-        length1 = data1.length;
-        loaderText.textContent = join1.length + " NFTs loaded...";
+        //Führe beide arrays zusammen
+        array = array.concat(join);
     }
-
-    //2nd collection
-    let join2 = []; let response2; let data2;
-    let length2 = 100;
-    let url2 = "https://soonaverse.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid_2;
-
-    //Solange bis Liste aller NFTs in der Collection empfangen sind, do this.
-    //Wenn weniger als 100 empfangen werden, dann ist es die letze Page in der API
-    while (length2 == 100) {
-        response2 = await fetch(url2);
-        data2 = await response2.json();
-
-        if (url2.search("startAfter") == -1) {
-            url2 = url2 + "&startAfter=" + data2[data2.length - 1].id;
-        } else {
-            url2 = url2.substring(0, url2.length - 42);
-            url2 = url2 + data2[data2.length - 1].id;
-        }
-        join2 = join2.concat(data2);
-        length2 = data2.length;
-        loaderText.textContent = join2.length + join1.length + " NFTs loaded...";
-    }
-
-    //3rd collection
-    let join3 = []; let response3; let data3;
-    let length3 = 100;
-    let url3 = "https://soonaverse.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid_3;
-
-    //Solange bis Liste aller NFTs in der Collection empfangen sind, do this.
-    //Wenn weniger als 100 empfangen werden, dann ist es die letze Page in der API
-    while (length3 == 100) {
-        response3 = await fetch(url3);
-        data3 = await response3.json();
-
-        if (url3.search("startAfter") == -1) {
-            url3 = url3 + "&startAfter=" + data3[data3.length - 1].id;
-        } else {
-            url3 = url3.substring(0, url3.length - 42);
-            url3 = url3 + data3[data3.length - 1].id;
-        }
-        join3 = join3.concat(data3);
-        length3 = data3.length;
-        loaderText.textContent = join3.length + join2.length + join1.length + " NFTs loaded...";
-    }
-
-    //4th collection
-    let join4 = []; let response4; let data4;
-    let length4 = 100;
-    let url4 = "https://soonaverse.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid_4;
-
-    //Solange bis Liste aller NFTs in der Collection empfangen sind, do this.
-    //Wenn weniger als 100 empfangen werden, dann ist es die letze Page in der API
-    while (length4 == 100) {
-        response4 = await fetch(url4);
-        data4 = await response4.json();
-
-        if (url4.search("startAfter") == -1) {
-            url4 = url4 + "&startAfter=" + data4[data4.length - 1].id;
-        } else {
-            url4 = url4.substring(0, url4.length - 42);
-            url4 = url4 + data4[data4.length - 1].id;
-        }
-        join4 = join4.concat(data4);
-        length4 = data4.length;
-        loaderText.textContent = join3.length + join2.length + join1.length + " NFTs loaded...";
-    }
-
-    //Führe beide arrays zusammen
-    array = join1.concat(join2, join3, join4);
     return array;
 }
 
@@ -182,9 +129,9 @@ function filterGrid(grid, sel) {
         iotaSelector = "[iota]";
         expressionSelector = "[expression]";
         accessorySelector = "[accessory]";
-        availableSelector = "[owned]";
+        availableSelector = "[available]";
         availableSelect.textContent = "All NFTs";
-        available = true;
+        available = 1;
         numberSelector = '[number="' + typeNumberInput.value + '"]';
     } else if (sel.id == "typeNumber") {
         //Filter nach Random Flavor (saves Performance from the start)
@@ -195,7 +142,7 @@ function filterGrid(grid, sel) {
     }
 
     //Available Selector
-    if (available) { availableSelector = "[owned]"; } else { availableSelector = "[owned='false']"; }
+    if (available) { availableSelector = "[available]"; } else { availableSelector = "[available='1']"; }
 
     gridSelector = numberSelector + flavorSelector + waffleSelector + iotaSelector + expressionSelector + accessorySelector + availableSelector;
 
@@ -221,16 +168,18 @@ window.addEventListener('DOMContentLoaded', () => {
     var uid_2 = "0x2c4ba46d0c76184f368a789141d8affe86f1d818";
     var uid_3 = "0xa362da9efdecc02482d76db36138dbef2e80fff3";
     var uid_4 = "0xdedd84cdd2ee62957ddb8f915cfadfe1555f5a35";
-    getNFTs(type, uid_1, uid_2, uid_3, uid_4).then(obj => {
-
-        console.log(obj);
+    getNFTs(type, [uid_1, uid_2, uid_3, uid_4]).then(obj => {
 
         //Give every NFT a number value - some don't have this
         for (var i = 0; i < obj.length; i++) {
             if (!obj[i].stats.number) {
                 obj[i].stats.number = {};
                 obj[i].stats.number.label = "Number";
-                obj[i].stats.number.value = "1";
+                switch (obj[i].properties.flavor.value) {
+                    case "Gold": obj[i].stats.number.value = "1"; break;
+                    case "Silver": obj[i].stats.number.value = "2"; break;
+                    case "Rose gold": obj[i].stats.number.value = "3"; break;
+                }
             }
         }
 
@@ -251,48 +200,29 @@ window.addEventListener('DOMContentLoaded', () => {
         var nftNumbers = document.getElementsByClassName("nftnumber");
         var buyLinks = document.getElementsByClassName("buyLink");
         var mintButtons = document.getElementsByClassName("mintButton");
-        //var nftInfoTexts = document.getElementsByClassName("nftinfotext");
 
         //Apply Images
         for (var i = 0; i < obj.length; i++) {
-
 
             var item = document.getElementsByClassName("item")[i];
 
             //-------------Find image in folder from data from Soonaverse---------------------
             if (obj[i].collection == "0xa362da9efdecc02482d76db36138dbef2e80fff3") {
                 //Gold, Silver, Rosegold
-                if (obj[i].properties.flavor.value == "Gold")
-                    nftImages[i].setAttribute("data-src", "../assets/nft_gold/gold.png");
-                if (obj[i].properties.flavor.value == "Silver")
-                    nftImages[i].setAttribute("data-src", "../assets/nft_gold/silver.png");
-                if (obj[i].properties.flavor.value == "Rose gold")
-                    nftImages[i].setAttribute("data-src", "../assets/nft_gold/rosegold.png");
-
-                item.setAttribute("number", obj[i].stats.number.value);
-                item.setAttribute("tier", "-");
-                item.setAttribute("waffle", "-");
-                item.setAttribute("flavor", obj[i].properties.flavor.value);
-                item.setAttribute("iota", obj[i].properties.logo.value);
-                item.setAttribute("owned", obj[i].sold)
-
+                switch (obj[i].properties.flavor.value) {
+                    case "Gold": nftImages[i].setAttribute("data-src", "../assets/nft_gold/gold.png"); break;
+                    case "Silver": nftImages[i].setAttribute("data-src", "../assets/nft_gold/silver.png"); break;
+                    case "Rose gold": nftImages[i].setAttribute("data-src", "../assets/nft_gold/rosegold.png"); break;
+                }
+                setAttributes(item, obj[i].stats.number.value, "-", "-", obj[i].properties.flavor.value, obj[i].properties.logo.value, "-", "-", obj[i].available);
             } else if (obj[i].collection == "0xdedd84cdd2ee62957ddb8f915cfadfe1555f5a35") {
                 //Crowns
-                if (obj[i].properties.flavor.value == "Gold")
-                    nftImages[i].setAttribute("data-src", "../assets/nft_gold/gold_crown.webp");
-                if (obj[i].properties.flavor.value == "Silver")
-                    nftImages[i].setAttribute("data-src", "../assets/nft_gold/silver_crown.webp");
-                if (obj[i].properties.flavor.value == "Rose gold")
-                    nftImages[i].setAttribute("data-src", "../assets/nft_gold/rosegold_crown.webp");
-
-                item.setAttribute("number", obj[i].stats.number.value);
-                item.setAttribute("tier", "-");
-                item.setAttribute("waffle", "-");
-                item.setAttribute("flavor", obj[i].properties.flavor.value);
-                item.setAttribute("iota", obj[i].properties.logo.value);
-                item.setAttribute("accessory", obj[i].properties.accessory.value);
-                item.setAttribute("owned", obj[i].sold)
-
+                switch (obj[i].properties.flavor.value) {
+                    case "Gold": nftImages[i].setAttribute("data-src", "../assets/nft_gold/gold_crown.webp"); break;
+                    case "Silver": nftImages[i].setAttribute("data-src", "../assets/nft_gold/silver_crown.webp"); break;
+                    case "Rose gold": nftImages[i].setAttribute("data-src", "../assets/nft_gold/rosegold_crown.webp"); break;
+                }
+                setAttributes(item, obj[i].stats.number.value, "-", "-", obj[i].properties.flavor.value, obj[i].properties.logo.value, "-", obj[i].properties.accessory.value, obj[i].available);
             } else {
                 //All other collecitons
                 var number, tier, flavor, waffle, expression, accessory, nftImageName;
@@ -322,28 +252,26 @@ window.addEventListener('DOMContentLoaded', () => {
                     nftImageName = number + "_" + tier + "_" + flavor + "_" + waffle + "_" + expression + ".jpg";
                 }
 
-                //nftImages[i].setAttribute("data-src", obj[i].media);
+                //For some reason its missing the "_glasses" on Soonaverse - special case
+                if (nftImageName.includes("1430"))
+                    nftImageName = "1430_05_blueberry_white_nervous_glasses.jpg";
+
                 nftImages[i].setAttribute("data-src", "../assets/nft/" + nftImageName);
 
-                //------------------Find image in folder from data from Soonaverse END---------------------
 
-                item.setAttribute("number", obj[i].stats.number.value);
-                item.setAttribute("tier", obj[i].properties.tier.value);
-                item.setAttribute("flavor", obj[i].properties.flavor.value);
-                item.setAttribute("waffle", obj[i].properties.waffle.value);
-                item.setAttribute("owned", obj[i].sold)
+
+                //If IOTA collection
                 if (obj[i].collection == "0x2c4ba46d0c76184f368a789141d8affe86f1d818")
-                    item.setAttribute("iota", obj[i].properties.logo.value); else item.setAttribute("expression", obj[i].properties.expression.value);
-                item.setAttribute("accessory", obj[i].properties.accessory.value);
-
+                    setAttributes(item, obj[i].stats.number.value, obj[i].properties.tier.value, obj[i].properties.waffle.value, obj[i].properties.flavor.value, obj[i].properties.logo.value, "-", obj[i].properties.accessory.value, obj[i].available);
+                else
+                    setAttributes(item, obj[i].stats.number.value, obj[i].properties.tier.value, obj[i].properties.waffle.value, obj[i].properties.flavor.value, "-", obj[i].properties.expression.value, obj[i].properties.accessory.value, obj[i].available);
             }
-
+            //------------------Find image in folder from data from Soonaverse END---------------------
 
             buyLinks[i].href = "https://soonaverse.com/nft/" + obj[i].uid;
 
             //Apply NFT Adresses
             if (obj[i].available) {
-                //mintButtons[i].disabled = true;
                 mintButtons[i].textContent = "Buy";
                 nftImages[i].style.opacity = 1;
                 ownedContainerElement[i].style.display = "none";
@@ -441,9 +369,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 items[i].getElement().getElementsByClassName("nftinfotext")[0].innerHTML = "<b>Tier </b>" + tier + "<br><b>Flavor </b>" + flavor + "<br><b>IOTA </b>" + iota + "<br><b>Waffle </b>" + waffle + "<br><b>Expression </b>" + expression + "<br><b>Accessory </b>" + accessory;
             }
 
-
-
-
             gridElement.style.top = "0px";
             gridElement.style.visibility = "visible";
             selectContainer.style.visibility = "visible";
@@ -459,7 +384,6 @@ window.addEventListener('DOMContentLoaded', () => {
             //------------------------Center the items----------------------------
             //Count rows
             // Get all active items.
-
             var activeItems = grid.getItems().filter(function (item) {
                 return item.isActive();
             });
@@ -513,10 +437,10 @@ window.addEventListener('DOMContentLoaded', () => {
         availableSelect.onclick = function () {
             if (!available) {
                 availableSelect.textContent = "All NFTs";
-                available = true;
+                available = 1;
             } else {
                 availableSelect.textContent = "Available";
-                available = false;
+                available = 0;
             }
             filterGrid(grid, availableSelect);
         }
