@@ -53,7 +53,7 @@ async function getNFTs(type, uids = [uid_1, uid_2, uid_3, uid_4]) {
     let array = [];
     for (const uid of uids) {
         let length = 100, response, data, join = [];
-        let url = "https://soonaverse.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid;
+        let url = "https://api.build5.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid;
 
         //Solange bis Liste aller NFTs in der Collection empfangen sind, do this.
         //Wenn weniger als 100 empfangen werden, dann ist es die letze Page in der API
