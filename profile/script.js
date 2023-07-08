@@ -31,7 +31,7 @@ async function getMember(uid) {
   let join = []; let response; let data;
   let length = 100;
   let type = "owner";
-  let url = "https://soonaverse.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid;
+  let url = "https://api.build5.com/api/getMany?collection=nft&fieldName=" + type + "&fieldValue=" + uid;
 
   //Solange bis Liste aller NFTs in der Collection empfangen sind, do this.
   //Wenn weniger als 100 empfangen werden, dann ist es die letze Page in der API
